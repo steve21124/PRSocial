@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Project Rhinestone. All rights reserved.
 //
 
-#import "PRWeiboService.h"
 #import <Social/Social.h>
+#import "UIApplication+PRSocialTopWindow.h"
+#import "PRWeiboService.h"
 
 @interface PRWeiboService ()
 
@@ -35,20 +36,8 @@
             [composeViewController addImage:image];
         }
         
-        // Find the window on the top.
-        UIApplication *application = [UIApplication sharedApplication];
-        UIWindow *topWindow = application.keyWindow;
-        if (topWindow.windowLevel != UIWindowLevelNormal) {
-            for (UIWindow *window in application.windows) {
-                if (window.windowLevel == UIWindowLevelNormal) {
-                    topWindow = window;
-                    break;
-                }
-            }
-        }
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [topWindow.rootViewController presentViewController:composeViewController animated:YES completion:nil];
+            [[UIApplication sharedApplication].topWindow.rootViewController presentViewController:composeViewController animated:YES completion:nil];
         });
     }
 }
@@ -74,20 +63,8 @@
             [composeViewController addImage:image];
         }
         
-        // Find the window on the top.
-        UIApplication *application = [UIApplication sharedApplication];
-        UIWindow *topWindow = application.keyWindow;
-        if (topWindow.windowLevel != UIWindowLevelNormal) {
-            for (UIWindow *window in application.windows) {
-                if (window.windowLevel == UIWindowLevelNormal) {
-                    topWindow = window;
-                    break;
-                }
-            }
-        }
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [topWindow.rootViewController presentViewController:composeViewController animated:YES completion:nil];
+            [[UIApplication sharedApplication].topWindow.rootViewController presentViewController:composeViewController animated:YES completion:nil];
         });
     }
 }
