@@ -20,6 +20,7 @@
 		937074C8192AE68D009561E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 937074C6192AE68D009561E1 /* InfoPlist.strings */; };
 		937074CA192AE68D009561E1 /* PRSocialDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074C9192AE68D009561E1 /* PRSocialDemoTests.m */; };
 		937074DA192AE8BE009561E1 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074D7192AE8BE009561E1 /* libWeChatSDK.a */; };
+		937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074E1192AEB22009561E1 /* PRRootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		937074D7192AE8BE009561E1 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		937074D8192AE8BE009561E1 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		937074D9192AE8BE009561E1 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		937074E0192AEB22009561E1 /* PRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRRootViewController.h; sourceTree = "<group>"; };
+		937074E1192AEB22009561E1 /* PRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRRootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,7 @@
 		937074AA192AE68D009561E1 /* PRSocialDemo */ = {
 			isa = PBXGroup;
 			children = (
+				937074DF192AEB19009561E1 /* UI */,
 				937074B3192AE68D009561E1 /* PRAppDelegate.h */,
 				937074B4192AE68D009561E1 /* PRAppDelegate.m */,
 				937074B6192AE68D009561E1 /* Images.xcassets */,
@@ -159,6 +163,15 @@
 			);
 			name = WeChat;
 			path = Frameworks/WeChat;
+			sourceTree = "<group>";
+		};
+		937074DF192AEB19009561E1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				937074E0192AEB22009561E1 /* PRRootViewController.h */,
+				937074E1192AEB22009561E1 /* PRRootViewController.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */,
 				937074B5192AE68D009561E1 /* PRAppDelegate.m in Sources */,
 				937074B1192AE68D009561E1 /* main.m in Sources */,
 			);
