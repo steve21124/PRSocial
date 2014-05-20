@@ -22,8 +22,8 @@
 		937074DA192AE8BE009561E1 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074D7192AE8BE009561E1 /* libWeChatSDK.a */; };
 		937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074E1192AEB22009561E1 /* PRRootViewController.m */; };
 		937074E9192AEC14009561E1 /* PRSocialService.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074E8192AEC14009561E1 /* PRSocialService.m */; };
-		937074FA192AF36E009561E1 /* PRSocialConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074F9192AF36E009561E1 /* PRSocialConfig.m */; };
 		937074F2192AF035009561E1 /* PRWeChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074F1192AF035009561E1 /* PRWeChatService.m */; };
+		937074FA192AF36E009561E1 /* PRSocialConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074F9192AF36E009561E1 /* PRSocialConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +60,11 @@
 		937074E1192AEB22009561E1 /* PRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRRootViewController.m; sourceTree = "<group>"; };
 		937074E7192AEC14009561E1 /* PRSocialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialService.h; path = Classes/PRSocialService.h; sourceTree = SOURCE_ROOT; };
 		937074E8192AEC14009561E1 /* PRSocialService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialService.m; path = Classes/PRSocialService.m; sourceTree = SOURCE_ROOT; };
-		937074F8192AF36E009561E1 /* PRSocialConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialConfig.h; path = Classes/PRSocialConfig.h; sourceTree = SOURCE_ROOT; };
-		937074F9192AF36E009561E1 /* PRSocialConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialConfig.m; path = Classes/PRSocialConfig.m; sourceTree = SOURCE_ROOT; };
 		937074F0192AF035009561E1 /* PRWeChatService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeChatService.h; path = Classes/PRWeChatService.h; sourceTree = SOURCE_ROOT; };
 		937074F1192AF035009561E1 /* PRWeChatService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeChatService.m; path = Classes/PRWeChatService.m; sourceTree = SOURCE_ROOT; };
+		937074F8192AF36E009561E1 /* PRSocialConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialConfig.h; path = Classes/PRSocialConfig.h; sourceTree = SOURCE_ROOT; };
+		937074F9192AF36E009561E1 /* PRSocialConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialConfig.m; path = Classes/PRSocialConfig.m; sourceTree = SOURCE_ROOT; };
+		937074FE192B08EC009561E1 /* PRSocial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PRSocial.h; path = Classes/PRSocial.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +188,7 @@
 		937074E3192AEBF6009561E1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				937074FE192B08EC009561E1 /* PRSocial.h */,
 				937074E7192AEC14009561E1 /* PRSocialService.h */,
 				937074E8192AEC14009561E1 /* PRSocialService.m */,
 				937074F8192AF36E009561E1 /* PRSocialConfig.h */,
