@@ -18,4 +18,7 @@ extern NSString * const kPRSocialConfigKeyAppDescription;
 - (id)valueForKey:(NSString *)key forServiceName:(NSString *)serviceName;
 - (void)setValue:(id)value forKey:(NSString *)key forServiceName:(NSString *)serviceName;
 
+- (void)setServiceName:(NSString *)serviceName forURLScheme:(NSString *)scheme;
+- (NSString *)serviceNameForURLScheme:(NSString *)scheme;
+
 @end

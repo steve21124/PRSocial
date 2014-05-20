@@ -14,6 +14,7 @@ NSString * const kPRSocialConfigKeyAppDescription = @"AppDescription";
 @interface PRSocialConfig ()
 
 @property (nonatomic, strong) NSMutableDictionary *configs;
+@property (nonatomic, strong) NSMutableDictionary *URLSchemes;
 @property (nonatomic, strong) dispatch_queue_t configQueue;
 
 @end
@@ -43,6 +44,25 @@ NSString * const kPRSocialConfigKeyAppDescription = @"AppDescription";
     });
 }
 
+- (void)setServiceName:(NSString *)serviceName forURLScheme:(NSString *)scheme
+{
+    @synchronized(self.URLSchemes) {
+        [self.URLSchemes setValue:serviceName forKey:scheme];
+    }
+}
+
+- (NSString *)serviceNameForURLScheme:(NSString *)scheme
+{
+    NSString *serviceName;
+    @try {
+        serviceName = self.URLSchemes[scheme];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%s Failed to get service name for URL scheme \"%@\": %@", __PRETTY_FUNCTION__, scheme, exception.reason);
+    }
+    return serviceName;
+}
+
 #pragma mark - Life cycle
 
 + (instancetype)defaultConfig
@@ -60,6 +80,7 @@ NSString * const kPRSocialConfigKeyAppDescription = @"AppDescription";
     self = [super init];
     if (self) {
         _configs = [[NSMutableDictionary alloc] init];
+        _URLSchemes = [[NSMutableDictionary alloc] init];
         _configQueue = dispatch_queue_create("PRSocialConfigQueue", NULL);
     }
     return self;
