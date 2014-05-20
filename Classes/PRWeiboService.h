@@ -1,5 +1,5 @@
 //
-//  PRSocial.h
+//  PRWeiboService.h
 //  PRSocialDemo
 //
 //  Created by Elethom Hunter on 5/20/14.
@@ -7,6 +7,9 @@
 //
 
 #import "PRSocialService.h"
-#import "PRSocialConfig.h"
-#import "PRWeChatService.h"
-#import "PRWeiboService.h"
+
+@interface PRWeiboService : PRSocialService
+
+@property (nonatomic, assign) BOOL usesSystemSocialFramework;
+
+@end
