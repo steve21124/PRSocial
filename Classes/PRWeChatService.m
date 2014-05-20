@@ -66,9 +66,9 @@
     [WXApi sendReq:req];
 }
 
-- (void)handleOpenURL:(NSURL *)URL
+- (BOOL)handleOpenURL:(NSURL *)URL
 {
-    [WXApi handleOpenURL:URL delegate:self];
+    return [WXApi handleOpenURL:URL delegate:self];
 }
 
 #pragma mark - Utils
