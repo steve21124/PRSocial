@@ -27,6 +27,8 @@
 		937074FA192AF36E009561E1 /* PRSocialConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074F9192AF36E009561E1 /* PRSocialConfig.m */; };
 		93707509192B2F28009561E1 /* PRWeiboService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93707508192B2F28009561E1 /* PRWeiboService.m */; };
 		9370750B192B2F45009561E1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9370750A192B2F45009561E1 /* Social.framework */; };
+		9370752B192B3DCE009561E1 /* NSNumber+PRSocialURLCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 93707528192B3DCE009561E1 /* NSNumber+PRSocialURLCoding.m */; };
+		9370752C192B3DCE009561E1 /* NSString+PRSocialURLCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370752A192B3DCE009561E1 /* NSString+PRSocialURLCoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,10 @@
 		93707507192B2F28009561E1 /* PRWeiboService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeiboService.h; path = Classes/PRWeiboService.h; sourceTree = SOURCE_ROOT; };
 		93707508192B2F28009561E1 /* PRWeiboService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeiboService.m; path = Classes/PRWeiboService.m; sourceTree = SOURCE_ROOT; };
 		9370750A192B2F45009561E1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		93707527192B3DCE009561E1 /* NSNumber+PRSocialURLCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+PRSocialURLCoding.h"; path = "Classes/Utils/Categories/NSNumber+PRSocialURLCoding.h"; sourceTree = SOURCE_ROOT; };
+		93707528192B3DCE009561E1 /* NSNumber+PRSocialURLCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+PRSocialURLCoding.m"; path = "Classes/Utils/Categories/NSNumber+PRSocialURLCoding.m"; sourceTree = SOURCE_ROOT; };
+		93707529192B3DCE009561E1 /* NSString+PRSocialURLCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PRSocialURLCoding.h"; path = "Classes/Utils/Categories/NSString+PRSocialURLCoding.h"; sourceTree = SOURCE_ROOT; };
+		9370752A192B3DCE009561E1 /* NSString+PRSocialURLCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PRSocialURLCoding.m"; path = "Classes/Utils/Categories/NSString+PRSocialURLCoding.m"; sourceTree = SOURCE_ROOT; };
 		9D31501A77D14BB9A8844236 /* Pods-PRSocialDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRSocialDemo.xcconfig"; path = "Pods/Pods-PRSocialDemo.xcconfig"; sourceTree = "<group>"; };
 		FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PRSocialDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -203,6 +209,7 @@
 		937074E3192AEBF6009561E1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93707514192B3AF4009561E1 /* Utils */,
 				937074FE192B08EC009561E1 /* PRSocial.h */,
 				937074E7192AEC14009561E1 /* PRSocialService.h */,
 				937074E8192AEC14009561E1 /* PRSocialService.m */,
@@ -214,6 +221,25 @@
 				93707508192B2F28009561E1 /* PRWeiboService.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		93707514192B3AF4009561E1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				93707526192B3DB3009561E1 /* Categories */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		93707526192B3DB3009561E1 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				93707527192B3DCE009561E1 /* NSNumber+PRSocialURLCoding.h */,
+				93707528192B3DCE009561E1 /* NSNumber+PRSocialURLCoding.m */,
+				93707529192B3DCE009561E1 /* NSString+PRSocialURLCoding.h */,
+				9370752A192B3DCE009561E1 /* NSString+PRSocialURLCoding.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,11 +373,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9370752B192B3DCE009561E1 /* NSNumber+PRSocialURLCoding.m in Sources */,
 				937074F2192AF035009561E1 /* PRWeChatService.m in Sources */,
 				937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */,
 				937074B5192AE68D009561E1 /* PRAppDelegate.m in Sources */,
 				937074FA192AF36E009561E1 /* PRSocialConfig.m in Sources */,
 				93707509192B2F28009561E1 /* PRWeiboService.m in Sources */,
+				9370752C192B3DCE009561E1 /* NSString+PRSocialURLCoding.m in Sources */,
 				937074E9192AEC14009561E1 /* PRSocialService.m in Sources */,
 				937074B1192AE68D009561E1 /* main.m in Sources */,
 			);
