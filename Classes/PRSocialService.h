@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PRSocialConfig.h"
 
 typedef void (^PRSocialCallback)(BOOL success, NSDictionary *result);
 
