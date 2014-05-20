@@ -20,4 +20,7 @@ typedef void (^PRSocialCallback)(BOOL success, NSDictionary *result);
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image;
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion;
 
++ (void)handleOpenURL:(NSURL *)URL;
+- (void)handleOpenURL:(NSURL *)URL;
+
 @end

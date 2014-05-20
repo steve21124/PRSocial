@@ -50,4 +50,18 @@
     NSAssert(NO, @"%s Override needed on abstract method.", __PRETTY_FUNCTION__);
 }
 
++ (void)handleOpenURL:(NSURL *)URL
+{
+    NSString *serviceName = [[PRSocialConfig defaultConfig] serviceNameForURLScheme:URL.scheme];
+    if (serviceName) {
+        Class class = NSClassFromString(serviceName);
+        [[class sharedService] handleOpenURL:URL];
+    }
+}
+
+- (void)handleOpenURL:(NSURL *)URL
+{
+    NSAssert(NO, @"%s Override needed on abstract method.", __PRETTY_FUNCTION__);
+}
+
 @end
