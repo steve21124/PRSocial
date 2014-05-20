@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "PRSocialConfig.h"
 
+extern NSString * const PRSocialServiceResultNotification;
+extern NSString * const PRSocialServiceResultNotificationKeySuccess;
+extern NSString * const PRSocialServiceResultNotificationKeyInfo;
+
 typedef void (^PRSocialCallback)(BOOL success, NSDictionary *result);
 
 @interface PRSocialService : NSObject

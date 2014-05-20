@@ -8,6 +8,10 @@
 
 #import "PRSocialService.h"
 
+NSString * const PRSocialServiceResultNotification = @"PRSocialServiceResultNotification";
+NSString * const PRSocialServiceResultNotificationKeySuccess = @"PRSocialServiceResultNotificationKeySuccess";
+NSString * const PRSocialServiceResultNotificationKeyInfo = @"PRSocialServiceResultNotificationKeyInfo";
+
 @implementation PRSocialService
 
 + (instancetype)sharedService
