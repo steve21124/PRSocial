@@ -21,6 +21,7 @@
 		937074CA192AE68D009561E1 /* PRSocialDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074C9192AE68D009561E1 /* PRSocialDemoTests.m */; };
 		937074DA192AE8BE009561E1 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074D7192AE8BE009561E1 /* libWeChatSDK.a */; };
 		937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074E1192AEB22009561E1 /* PRRootViewController.m */; };
+		937074E9192AEC14009561E1 /* PRSocialService.m in Sources */ = {isa = PBXBuildFile; fileRef = 937074E8192AEC14009561E1 /* PRSocialService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		937074D9192AE8BE009561E1 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		937074E0192AEB22009561E1 /* PRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRRootViewController.h; sourceTree = "<group>"; };
 		937074E1192AEB22009561E1 /* PRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRRootViewController.m; sourceTree = "<group>"; };
+		937074E7192AEC14009561E1 /* PRSocialService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialService.h; path = Classes/PRSocialService.h; sourceTree = SOURCE_ROOT; };
+		937074E8192AEC14009561E1 /* PRSocialService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialService.m; path = Classes/PRSocialService.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 		937074AA192AE68D009561E1 /* PRSocialDemo */ = {
 			isa = PBXGroup;
 			children = (
+				937074E3192AEBF6009561E1 /* Classes */,
 				937074DF192AEB19009561E1 /* UI */,
 				937074B3192AE68D009561E1 /* PRAppDelegate.h */,
 				937074B4192AE68D009561E1 /* PRAppDelegate.m */,
@@ -172,6 +176,15 @@
 				937074E1192AEB22009561E1 /* PRRootViewController.m */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		937074E3192AEBF6009561E1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				937074E7192AEC14009561E1 /* PRSocialService.h */,
+				937074E8192AEC14009561E1 /* PRSocialService.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +285,7 @@
 			files = (
 				937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */,
 				937074B5192AE68D009561E1 /* PRAppDelegate.m in Sources */,
+				937074E9192AEC14009561E1 /* PRSocialService.m in Sources */,
 				937074B1192AE68D009561E1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
