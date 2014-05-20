@@ -40,6 +40,12 @@
     
 }
 
+- (BOOL)isAvailable
+{
+    NSAssert(NO, @"%s Override needed on abstract method.", __PRETTY_FUNCTION__);
+    return NO;
+}
+
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image
 {
     NSAssert(NO, @"%s Override needed on abstract method.", __PRETTY_FUNCTION__);
