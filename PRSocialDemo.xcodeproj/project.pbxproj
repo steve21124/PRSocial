@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19B6CDB8150B47D8A3FBC71A /* libPods-PRSocialDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */; };
 		937074A5192AE68D009561E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A4192AE68D009561E1 /* Foundation.framework */; };
 		937074A7192AE68D009561E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A6192AE68D009561E1 /* CoreGraphics.framework */; };
 		937074A9192AE68D009561E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A8192AE68D009561E1 /* UIKit.framework */; };
@@ -65,6 +66,9 @@
 		937074F8192AF36E009561E1 /* PRSocialConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialConfig.h; path = Classes/PRSocialConfig.h; sourceTree = SOURCE_ROOT; };
 		937074F9192AF36E009561E1 /* PRSocialConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialConfig.m; path = Classes/PRSocialConfig.m; sourceTree = SOURCE_ROOT; };
 		937074FE192B08EC009561E1 /* PRSocial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PRSocial.h; path = Classes/PRSocial.h; sourceTree = SOURCE_ROOT; };
+		93707505192B2D74009561E1 /* libPods-PRSocialDemo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-PRSocialDemo.a"; path = "Pods/build/Debug-iphoneos/libPods-PRSocialDemo.a"; sourceTree = "<group>"; };
+		9D31501A77D14BB9A8844236 /* Pods-PRSocialDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRSocialDemo.xcconfig"; path = "Pods/Pods-PRSocialDemo.xcconfig"; sourceTree = "<group>"; };
+		FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PRSocialDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				937074A9192AE68D009561E1 /* UIKit.framework in Frameworks */,
 				937074DA192AE8BE009561E1 /* libWeChatSDK.a in Frameworks */,
 				937074A5192AE68D009561E1 /* Foundation.framework in Frameworks */,
+				19B6CDB8150B47D8A3FBC71A /* libPods-PRSocialDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +104,7 @@
 				937074C3192AE68D009561E1 /* PRSocialDemoTests */,
 				937074A3192AE68D009561E1 /* Frameworks */,
 				937074A2192AE68D009561E1 /* Products */,
+				9D31501A77D14BB9A8844236 /* Pods-PRSocialDemo.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,11 +120,13 @@
 		937074A3192AE68D009561E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93707505192B2D74009561E1 /* libPods-PRSocialDemo.a */,
 				937074D6192AE8BE009561E1 /* WeChat */,
 				937074A4192AE68D009561E1 /* Foundation.framework */,
 				937074A6192AE68D009561E1 /* CoreGraphics.framework */,
 				937074A8192AE68D009561E1 /* UIKit.framework */,
 				937074BD192AE68D009561E1 /* XCTest.framework */,
+				FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 937074CD192AE68D009561E1 /* Build configuration list for PBXNativeTarget "PRSocialDemo" */;
 			buildPhases = (
+				48F6E152508C443E8297F72F /* Check Pods Manifest.lock */,
 				9370749D192AE68D009561E1 /* Sources */,
 				9370749E192AE68D009561E1 /* Frameworks */,
 				9370749F192AE68D009561E1 /* Resources */,
+				B8039DAFD14447149D7C3B5F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +299,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48F6E152508C443E8297F72F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B8039DAFD14447149D7C3B5F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-PRSocialDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9370749D192AE68D009561E1 /* Sources */ = {
@@ -414,11 +457,9 @@
 		};
 		937074CE192AE68D009561E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D31501A77D14BB9A8844236 /* Pods-PRSocialDemo.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					armv7s,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -427,20 +468,18 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/WeChat",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		937074CF192AE68D009561E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D31501A77D14BB9A8844236 /* Pods-PRSocialDemo.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					armv7s,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -449,9 +488,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/WeChat",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -1,0 +1,10 @@
+PODS:
+  - Weibo (2.4.2)
+
+DEPENDENCIES:
+  - Weibo (~> 2.4.2)
+
+SPEC CHECKSUMS:
+  Weibo: 6a997663c8022500eb30ee93d42c67f85149e372
+
+COCOAPODS: 0.32.1
