@@ -11,6 +11,11 @@
 NSString * const kPRSocialConfigKeyAppID = @"AppID";
 NSString * const kPRSocialConfigKeyAppDescription = @"AppDescription";
 
+NSString * const kPRSocialConfigKeyOAuthClientID = @"ClientID";
+NSString * const kPRSocialConfigKeyOAuthClientSecret = @"ClientSecret";
+NSString * const kPRSocialConfigKeyOAuthRedirectURI = @"RedirectURI";
+NSString * const kPRSocialConfigKeyOAuthScope = @"Scope";
+
 @interface PRSocialConfig ()
 
 @property (nonatomic, strong) NSMutableDictionary *configs;

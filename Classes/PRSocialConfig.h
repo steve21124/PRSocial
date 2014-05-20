@@ -11,6 +11,11 @@
 extern NSString * const kPRSocialConfigKeyAppID;
 extern NSString * const kPRSocialConfigKeyAppDescription;
 
+extern NSString * const kPRSocialConfigKeyOAuthClientID;
+extern NSString * const kPRSocialConfigKeyOAuthClientSecret;
+extern NSString * const kPRSocialConfigKeyOAuthRedirectURI;
+extern NSString * const kPRSocialConfigKeyOAuthScope;
+
 @interface PRSocialConfig : NSObject
 
 + (instancetype)defaultConfig;
