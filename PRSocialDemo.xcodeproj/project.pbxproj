@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19B6CDB8150B47D8A3FBC71A /* libPods-PRSocialDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */; };
+		93461E07192B6209007D7DA0 /* PRWeiboAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93461E06192B6209007D7DA0 /* PRWeiboAuth.m */; };
 		937074A5192AE68D009561E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A4192AE68D009561E1 /* Foundation.framework */; };
 		937074A7192AE68D009561E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A6192AE68D009561E1 /* CoreGraphics.framework */; };
 		937074A9192AE68D009561E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A8192AE68D009561E1 /* UIKit.framework */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		93461E05192B6209007D7DA0 /* PRWeiboAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeiboAuth.h; path = Classes/Auth/Weibo/PRWeiboAuth.h; sourceTree = SOURCE_ROOT; };
+		93461E06192B6209007D7DA0 /* PRWeiboAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeiboAuth.m; path = Classes/Auth/Weibo/PRWeiboAuth.m; sourceTree = SOURCE_ROOT; };
 		937074A1192AE68D009561E1 /* PRSocialDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRSocialDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937074A4192AE68D009561E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		937074A6192AE68D009561E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -301,6 +304,8 @@
 		9370755D192B5381009561E1 /* Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				93461E05192B6209007D7DA0 /* PRWeiboAuth.h */,
+				93461E06192B6209007D7DA0 /* PRWeiboAuth.m */,
 				9370755E192B53AC009561E1 /* PRWeiboOAuth.h */,
 				9370755F192B53AC009561E1 /* PRWeiboOAuth.m */,
 			);
@@ -444,6 +449,7 @@
 				937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */,
 				9370755B192B535F009561E1 /* PRSocialAuth.m in Sources */,
 				937074B5192AE68D009561E1 /* PRAppDelegate.m in Sources */,
+				93461E07192B6209007D7DA0 /* PRWeiboAuth.m in Sources */,
 				937074FA192AF36E009561E1 /* PRSocialConfig.m in Sources */,
 				93707509192B2F28009561E1 /* PRWeiboService.m in Sources */,
 				93707537192B45F6009561E1 /* PRSocialAuthWebViewController.m in Sources */,
