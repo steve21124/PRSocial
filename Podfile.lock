@@ -1,10 +1,13 @@
 PODS:
+  - SSKeychain (1.2.2)
   - Weibo (2.4.2)
 
 DEPENDENCIES:
+  - SSKeychain (~> 1.2.2)
   - Weibo (~> 2.4.2)
 
 SPEC CHECKSUMS:
+  SSKeychain: 3d0b76c87e7b062a7ad1631a825fddec84367d44
   Weibo: 6a997663c8022500eb30ee93d42c67f85149e372
 
 COCOAPODS: 0.32.1
