@@ -39,6 +39,7 @@
 		93707560192B53AC009561E1 /* PRWeiboOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370755F192B53AC009561E1 /* PRWeiboOAuth.m */; };
 		93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */; };
 		93EAE9A8192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */; };
+		93EAE9AB192C46240043FE67 /* PRSocialHTTPFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9AA192C46240043FE67 /* PRSocialHTTPFormDataRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeiboAuth.m; path = Classes/Auth/Weibo/PRWeiboAuth.m; sourceTree = SOURCE_ROOT; };
 		93EAE9A6192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+PRSocialJSONKeyPath.h"; path = "Classes/Utils/Categories/NSObject+PRSocialJSONKeyPath.h"; sourceTree = SOURCE_ROOT; };
 		93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+PRSocialJSONKeyPath.m"; path = "Classes/Utils/Categories/NSObject+PRSocialJSONKeyPath.m"; sourceTree = SOURCE_ROOT; };
+		93EAE9A9192C46240043FE67 /* PRSocialHTTPFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialHTTPFormDataRequest.h; path = Classes/Utils/Network/PRSocialHTTPFormDataRequest.h; sourceTree = SOURCE_ROOT; };
+		93EAE9AA192C46240043FE67 /* PRSocialHTTPFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialHTTPFormDataRequest.m; path = Classes/Utils/Network/PRSocialHTTPFormDataRequest.m; sourceTree = SOURCE_ROOT; };
 		9D31501A77D14BB9A8844236 /* Pods-PRSocialDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRSocialDemo.xcconfig"; path = "Pods/Pods-PRSocialDemo.xcconfig"; sourceTree = "<group>"; };
 		FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PRSocialDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -297,6 +300,8 @@
 			children = (
 				93707546192B49F2009561E1 /* PRSocialHTTPRequest.h */,
 				93707547192B49F2009561E1 /* PRSocialHTTPRequest.m */,
+				93EAE9A9192C46240043FE67 /* PRSocialHTTPFormDataRequest.h */,
+				93EAE9AA192C46240043FE67 /* PRSocialHTTPFormDataRequest.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				93461E13192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.m in Sources */,
 				93461E16192B8039007D7DA0 /* PRSocialComposeViewController.m in Sources */,
 				9370755B192B535F009561E1 /* PRSocialAuth.m in Sources */,
+				93EAE9AB192C46240043FE67 /* PRSocialHTTPFormDataRequest.m in Sources */,
 				937074B5192AE68D009561E1 /* PRAppDelegate.m in Sources */,
 				937074FA192AF36E009561E1 /* PRSocialConfig.m in Sources */,
 				93707509192B2F28009561E1 /* PRWeiboService.m in Sources */,
