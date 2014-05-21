@@ -7,6 +7,7 @@
 //
 
 #import "PRSocialService.h"
+#import "PRWeiboAuth.h"
 
 @interface PRWeiboService : PRSocialService
 
