@@ -40,6 +40,7 @@
 		93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */; };
 		93EAE9A8192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */; };
 		93EAE9AB192C46240043FE67 /* PRSocialHTTPFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9AA192C46240043FE67 /* PRSocialHTTPFormDataRequest.m */; };
+		93EE296F192C785B001DB007 /* PRSocialGlobalHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EE296E192C785B001DB007 /* PRSocialGlobalHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+PRSocialJSONKeyPath.m"; path = "Classes/Utils/Categories/NSObject+PRSocialJSONKeyPath.m"; sourceTree = SOURCE_ROOT; };
 		93EAE9A9192C46240043FE67 /* PRSocialHTTPFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialHTTPFormDataRequest.h; path = Classes/Utils/Network/PRSocialHTTPFormDataRequest.h; sourceTree = SOURCE_ROOT; };
 		93EAE9AA192C46240043FE67 /* PRSocialHTTPFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialHTTPFormDataRequest.m; path = Classes/Utils/Network/PRSocialHTTPFormDataRequest.m; sourceTree = SOURCE_ROOT; };
+		93EE296D192C785B001DB007 /* PRSocialGlobalHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialGlobalHUD.h; path = Classes/Utils/UI/PRSocialGlobalHUD.h; sourceTree = SOURCE_ROOT; };
+		93EE296E192C785B001DB007 /* PRSocialGlobalHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialGlobalHUD.m; path = Classes/Utils/UI/PRSocialGlobalHUD.m; sourceTree = SOURCE_ROOT; };
 		9D31501A77D14BB9A8844236 /* Pods-PRSocialDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRSocialDemo.xcconfig"; path = "Pods/Pods-PRSocialDemo.xcconfig"; sourceTree = "<group>"; };
 		FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PRSocialDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -291,6 +294,8 @@
 				93707536192B45F6009561E1 /* PRSocialAuthWebViewController.m */,
 				93461E14192B8039007D7DA0 /* PRSocialComposeViewController.h */,
 				93461E15192B8039007D7DA0 /* PRSocialComposeViewController.m */,
+				93EE296D192C785B001DB007 /* PRSocialGlobalHUD.h */,
+				93EE296E192C785B001DB007 /* PRSocialGlobalHUD.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 				93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */,
 				93707548192B49F2009561E1 /* PRSocialHTTPRequest.m in Sources */,
 				937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */,
+				93EE296F192C785B001DB007 /* PRSocialGlobalHUD.m in Sources */,
 				93461E13192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.m in Sources */,
 				93461E16192B8039007D7DA0 /* PRSocialComposeViewController.m in Sources */,
 				9370755B192B535F009561E1 /* PRSocialAuth.m in Sources */,
