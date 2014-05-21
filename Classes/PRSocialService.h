@@ -17,6 +17,8 @@ typedef void (^PRSocialCallback)(BOOL success, NSDictionary *result);
 
 @interface PRSocialService : NSObject
 
+@property (nonatomic, copy) PRSocialCallback completionHandler;
+
 + (instancetype)sharedService;
 
 @end

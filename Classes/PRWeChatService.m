@@ -35,8 +35,20 @@
     [self shareContentWithTitle:title description:description URL:URL image:image scene:PRWeChatServiceSceneTimeline];
 }
 
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion
+{
+    [self shareContentWithTitle:title description:description URL:URL image:image scene:PRWeChatServiceSceneTimeline completion:completion];
+}
+
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image scene:(PRWeChatServiceScene)scene
 {
+    [self shareContentWithTitle:title description:description URL:URL image:image scene:scene completion:nil];
+}
+
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image scene:(PRWeChatServiceScene)scene completion:(PRSocialCallback)completion
+{
+    self.completionHandler = completion;
+    
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
     
     if (URL.absoluteString.length || image) {
@@ -90,6 +102,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:PRSocialServiceResultNotification
                                                         object:self
                                                       userInfo:@{PRSocialServiceResultNotificationKeySuccess: @(success)}];
+    if (self.completionHandler) {
+        self.completionHandler(success, nil);
+        self.completionHandler = nil;
+    }
 }
 
 @end

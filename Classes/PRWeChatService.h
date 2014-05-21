@@ -16,5 +16,6 @@ typedef NS_ENUM(NSUInteger, PRWeChatServiceScene) {
 @interface PRWeChatService : PRSocialService
 
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image scene:(PRWeChatServiceScene)scene;
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image scene:(PRWeChatServiceScene)scene completion:(PRSocialCallback)completion;
 
 @end

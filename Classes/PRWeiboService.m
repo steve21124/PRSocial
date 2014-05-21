@@ -17,8 +17,6 @@
 
 @interface PRWeiboService () <PRSocialComposeViewControllerDelegate>
 
-@property (nonatomic, copy) PRSocialCallback completionHandler;
-
 - (void)presentComposeViewControllerWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image;
 - (void)sendShareRequestWithText:(NSString *)text image:(UIImage *)image completion:(PRSocialCallback)completion;
 
