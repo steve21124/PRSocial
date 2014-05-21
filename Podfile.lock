@@ -1,13 +1,16 @@
 PODS:
+  - MBProgressHUD (0.8)
   - SSKeychain (1.2.2)
   - Weibo (2.4.2)
 
 DEPENDENCIES:
+  - MBProgressHUD (~> 0.8)
   - SSKeychain (~> 1.2.2)
   - Weibo (~> 2.4.2)
 
 SPEC CHECKSUMS:
-  SSKeychain: 3d0b76c87e7b062a7ad1631a825fddec84367d44
-  Weibo: 6a997663c8022500eb30ee93d42c67f85149e372
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  Weibo: 8ac9c24884290718ca62da62301165d209f7336c
 
 COCOAPODS: 0.32.1

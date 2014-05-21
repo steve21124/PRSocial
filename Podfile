@@ -5,6 +5,7 @@ target "PRSocialDemo" do
 
 pod 'Weibo', '~> 2.4.2'
 pod 'SSKeychain', '~> 1.2.2'
+pod 'MBProgressHUD', '~> 0.8'
 
 end
 
