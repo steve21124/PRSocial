@@ -38,6 +38,7 @@
 		9370755C192B535F009561E1 /* PRSocialOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370755A192B535F009561E1 /* PRSocialOAuth.m */; };
 		93707560192B53AC009561E1 /* PRWeiboOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370755F192B53AC009561E1 /* PRWeiboOAuth.m */; };
 		93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */; };
+		93EAE9A8192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		9370755F192B53AC009561E1 /* PRWeiboOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeiboOAuth.m; path = Classes/Auth/Weibo/PRWeiboOAuth.m; sourceTree = SOURCE_ROOT; };
 		93EAE9A3192C39E60043FE67 /* PRWeiboAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeiboAuth.h; path = Classes/Auth/Weibo/PRWeiboAuth.h; sourceTree = SOURCE_ROOT; };
 		93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeiboAuth.m; path = Classes/Auth/Weibo/PRWeiboAuth.m; sourceTree = SOURCE_ROOT; };
+		93EAE9A6192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+PRSocialJSONKeyPath.h"; path = "Classes/Utils/Categories/NSObject+PRSocialJSONKeyPath.h"; sourceTree = SOURCE_ROOT; };
+		93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+PRSocialJSONKeyPath.m"; path = "Classes/Utils/Categories/NSObject+PRSocialJSONKeyPath.m"; sourceTree = SOURCE_ROOT; };
 		9D31501A77D14BB9A8844236 /* Pods-PRSocialDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRSocialDemo.xcconfig"; path = "Pods/Pods-PRSocialDemo.xcconfig"; sourceTree = "<group>"; };
 		FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PRSocialDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -272,6 +275,8 @@
 				9370752A192B3DCE009561E1 /* NSString+PRSocialURLCoding.m */,
 				93461E0B192B6AA7007D7DA0 /* UIApplication+PRSocialTopWindow.h */,
 				93461E0C192B6AA7007D7DA0 /* UIApplication+PRSocialTopWindow.m */,
+				93EAE9A6192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.h */,
+				93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 				9370755C192B535F009561E1 /* PRSocialOAuth.m in Sources */,
 				9370752C192B3DCE009561E1 /* NSString+PRSocialURLCoding.m in Sources */,
 				937074E9192AEC14009561E1 /* PRSocialService.m in Sources */,
+				93EAE9A8192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m in Sources */,
 				93707560192B53AC009561E1 /* PRWeiboOAuth.m in Sources */,
 				937074B1192AE68D009561E1 /* main.m in Sources */,
 				93461E0D192B6AA7007D7DA0 /* UIApplication+PRSocialTopWindow.m in Sources */,
