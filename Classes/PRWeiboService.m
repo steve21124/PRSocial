@@ -34,33 +34,6 @@
     return [[PRWeiboAuth sharedAuth] handleSSOAuthOpenURL:URL];
 }
 
-- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image
-{
-    if (_usesSystemSocialFramework) {
-        SLComposeViewController *composeViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeSinaWeibo];
-        composeViewController.title = title;
-        [composeViewController setInitialText:description];
-        
-        if (URL) {
-            [composeViewController addURL:URL];
-        }
-        
-        if (image) {
-            [composeViewController addImage:image];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication].topWindow.rootViewController presentViewController:composeViewController animated:YES completion:nil];
-        });
-    } else {
-        [[PRWeiboAuth sharedAuth] authorizeWithCompletionHandler:^(BOOL success) {
-            if (success) {
-                [self presentComposeViewControllerWithTitle:title description:description URL:URL image:image];
-            }
-        }];
-    }
-}
-
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion
 {
     if (_usesSystemSocialFramework) {
@@ -86,12 +59,16 @@
             [[UIApplication sharedApplication].topWindow.rootViewController presentViewController:composeViewController animated:YES completion:nil];
         });
     } else {
-        self.completionHandler = completion;
         [[PRWeiboAuth sharedAuth] authorizeWithCompletionHandler:^(BOOL success) {
             if (success) {
+                self.completionHandler = completion;
                 [self presentComposeViewControllerWithTitle:title description:description URL:URL image:image];
             } else {
-                completion(NO, nil);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (completion) {
+                        completion(NO, nil);
+                    }
+                });
             }
         }];
     }

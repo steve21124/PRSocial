@@ -30,11 +30,6 @@
     return [WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi];
 }
 
-- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image
-{
-    [self shareContentWithTitle:title description:description URL:URL image:image scene:PRWeChatServiceSceneTimeline];
-}
-
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion
 {
     [self shareContentWithTitle:title description:description URL:URL image:image scene:PRWeChatServiceSceneTimeline completion:completion];
