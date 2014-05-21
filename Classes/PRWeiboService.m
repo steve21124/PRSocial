@@ -34,6 +34,22 @@
     return [[PRWeiboAuth sharedAuth] handleSSOAuthOpenURL:URL];
 }
 
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL
+{
+    [self shareContentWithTitle:title description:description URL:URL imageURL:imageURL completion:nil];
+}
+
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL completion:(PRSocialCallback)completion
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [PRSocialGlobalHUD show];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        UIImage *image = [UIImage imageWithData:imageData];
+        [PRSocialGlobalHUD hide];
+        [self shareContentWithTitle:title description:description URL:URL image:image completion:completion];
+    });
+}
+
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion
 {
     if (_usesSystemSocialFramework) {

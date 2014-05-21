@@ -13,4 +13,7 @@
 
 @property (nonatomic, assign) BOOL usesSystemSocialFramework;
 
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL;
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL completion:(PRSocialCallback)completion;
+
 @end
