@@ -10,6 +10,7 @@
 		19B6CDB8150B47D8A3FBC71A /* libPods-PRSocialDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEDD4F2D380D409DB02D6740 /* libPods-PRSocialDemo.a */; };
 		93461E0D192B6AA7007D7DA0 /* UIApplication+PRSocialTopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 93461E0C192B6AA7007D7DA0 /* UIApplication+PRSocialTopWindow.m */; };
 		93461E13192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.m in Sources */ = {isa = PBXBuildFile; fileRef = 93461E12192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.m */; };
+		93461E16192B8039007D7DA0 /* PRSocialComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93461E15192B8039007D7DA0 /* PRSocialComposeViewController.m */; };
 		937074A5192AE68D009561E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A4192AE68D009561E1 /* Foundation.framework */; };
 		937074A7192AE68D009561E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A6192AE68D009561E1 /* CoreGraphics.framework */; };
 		937074A9192AE68D009561E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937074A8192AE68D009561E1 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		93461E0C192B6AA7007D7DA0 /* UIApplication+PRSocialTopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+PRSocialTopWindow.m"; path = "Classes/Utils/Categories/UIApplication+PRSocialTopWindow.m"; sourceTree = SOURCE_ROOT; };
 		93461E11192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PRSocialASCIILength.h"; path = "Classes/Utils/Categories/NSString+PRSocialASCIILength.h"; sourceTree = SOURCE_ROOT; };
 		93461E12192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PRSocialASCIILength.m"; path = "Classes/Utils/Categories/NSString+PRSocialASCIILength.m"; sourceTree = SOURCE_ROOT; };
+		93461E14192B8039007D7DA0 /* PRSocialComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialComposeViewController.h; path = Classes/Utils/UI/PRSocialComposeViewController.h; sourceTree = SOURCE_ROOT; };
+		93461E15192B8039007D7DA0 /* PRSocialComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialComposeViewController.m; path = Classes/Utils/UI/PRSocialComposeViewController.m; sourceTree = SOURCE_ROOT; };
 		937074A1192AE68D009561E1 /* PRSocialDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRSocialDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937074A4192AE68D009561E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		937074A6192AE68D009561E1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -278,6 +281,8 @@
 			children = (
 				93707535192B45F6009561E1 /* PRSocialAuthWebViewController.h */,
 				93707536192B45F6009561E1 /* PRSocialAuthWebViewController.m */,
+				93461E14192B8039007D7DA0 /* PRSocialComposeViewController.h */,
+				93461E15192B8039007D7DA0 /* PRSocialComposeViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -459,6 +464,7 @@
 				93707548192B49F2009561E1 /* PRSocialHTTPRequest.m in Sources */,
 				937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */,
 				93461E13192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.m in Sources */,
+				93461E16192B8039007D7DA0 /* PRSocialComposeViewController.m in Sources */,
 				9370755B192B535F009561E1 /* PRSocialAuth.m in Sources */,
 				937074B5192AE68D009561E1 /* PRAppDelegate.m in Sources */,
 				937074FA192AF36E009561E1 /* PRSocialConfig.m in Sources */,
