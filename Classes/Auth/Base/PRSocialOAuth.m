@@ -7,6 +7,7 @@
 //
 
 #import <SSKeychain.h>
+#import "PRSocialGlobalHUD.h"
 #import "NSString+PRSocialURLCoding.h"
 #import "PRSocialHTTPRequest.h"
 #import "PRSocialOAuth.h"
@@ -254,6 +255,7 @@ NSTimeInterval const kPRSocialOAuthTimeoutOffset = 300; // 5 min
 - (void)getAccessTokenWithAuthCode
 {
     if (self.code) {
+        [PRSocialGlobalHUD show];
         NSURL *requestURL = [NSURL URLWithString:self.accessTokenLink];
         NSDictionary *requestDictionary = self.codeAuthRequestDictionary;
         NSDictionary *responseHeaders = nil;
@@ -263,12 +265,14 @@ NSTimeInterval const kPRSocialOAuthTimeoutOffset = 300; // 5 min
                                                                                  requestBody:requestDictionary
                                                                              responseHeaders:&responseHeaders];
         [self handleCodeAuthResponse:responseDictionary];
+        [PRSocialGlobalHUD hide];
     }
 }
 
 - (void)getAccessTokenWithRefreshToken
 {
     if (self.refreshToken) {
+        [PRSocialGlobalHUD show];
         NSURL *requestURL = [NSURL URLWithString:self.accessTokenLink];
         NSDictionary *requestDictionary = self.refreshTokenAuthRequestDictionary;
         NSDictionary *responseHeaders = nil;
@@ -278,6 +282,7 @@ NSTimeInterval const kPRSocialOAuthTimeoutOffset = 300; // 5 min
                                                                                  requestBody:requestDictionary
                                                                              responseHeaders:&responseHeaders];
         [self handleRefreshTokenAuthResponse:responseDictionary];
+        [PRSocialGlobalHUD hide];
     }
 }
 

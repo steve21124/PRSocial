@@ -7,6 +7,7 @@
 //
 
 #import <Social/Social.h>
+#import "PRSocialGlobalHUD.h"
 #import "UIApplication+PRSocialTopWindow.h"
 #import "PRSocialComposeViewController.h"
 #import "NSString+PRSocialURLCoding.h"
@@ -103,6 +104,7 @@
 - (void)presentComposeViewControllerWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [PRSocialGlobalHUD show];
         NSString *shortenedLink = [self shortLinkForLink:URL.absoluteString];
         PRSocialComposeViewController *composeViewController = [[PRSocialComposeViewController alloc] init];
         composeViewController.delegate = self;
@@ -114,6 +116,7 @@
         }
         
         UINavigationController *composeNavigationController = [[UINavigationController alloc] initWithRootViewController:composeViewController];
+        [PRSocialGlobalHUD hide];
         dispatch_async(dispatch_get_main_queue(), ^{
             [[UIApplication sharedApplication].topWindow.rootViewController presentViewController:composeNavigationController animated:YES completion:nil];
         });
@@ -140,6 +143,7 @@
 - (void)sendShareRequestWithText:(NSString *)text image:(UIImage *)image completion:(PRSocialCallback)completion
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [PRSocialGlobalHUD show];
         NSString *accessToken = [PRWeiboAuth sharedAuth].accessToken;
         NSString *clientID = [[PRSocialConfig defaultConfig] valueForKey:kPRSocialConfigKeyAppID
                                                           forServiceName:NSStringFromClass(self.class)];
@@ -178,6 +182,7 @@
                 NSLog(@"%s JSON parsing error \n%@", __PRETTY_FUNCTION__, error.description);
             }
         }
+        [PRSocialGlobalHUD hide];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (completion) {
                 completion(response.statusCode == 200, responseDictionary);
