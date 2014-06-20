@@ -52,7 +52,7 @@
         message.description = description;
         
         if (image) {
-            message.thumbData = UIImageJPEGRepresentation([self.class scaledImageWithImage:image size:CGSizeMake(100.f, 100.f * image.size.height / image.size.width)], .5f);
+            message.thumbData = UIImageJPEGRepresentation([self.class scaledImageWithImage:image size:CGSizeMake(180.f, 180.f * image.size.height / image.size.width)], .7f);
         }
         
         if (URL.absoluteString.length) {
