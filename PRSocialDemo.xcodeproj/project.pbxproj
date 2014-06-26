@@ -37,6 +37,7 @@
 		9370755B192B535F009561E1 /* PRSocialAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93707558192B535F009561E1 /* PRSocialAuth.m */; };
 		9370755C192B535F009561E1 /* PRSocialOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370755A192B535F009561E1 /* PRSocialOAuth.m */; };
 		93707560192B53AC009561E1 /* PRWeiboOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370755F192B53AC009561E1 /* PRWeiboOAuth.m */; };
+		93DC96F1195C0C3F004D796E /* PRSocialUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DC96F0195C0C3F004D796E /* PRSocialUserInfo.m */; };
 		93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */; };
 		93EAE9A8192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */; };
 		93EAE9AB192C46240043FE67 /* PRSocialHTTPFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9AA192C46240043FE67 /* PRSocialHTTPFormDataRequest.m */; };
@@ -106,6 +107,8 @@
 		9370755A192B535F009561E1 /* PRSocialOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialOAuth.m; path = Classes/Auth/Base/PRSocialOAuth.m; sourceTree = SOURCE_ROOT; };
 		9370755E192B53AC009561E1 /* PRWeiboOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeiboOAuth.h; path = Classes/Auth/Weibo/PRWeiboOAuth.h; sourceTree = SOURCE_ROOT; };
 		9370755F192B53AC009561E1 /* PRWeiboOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeiboOAuth.m; path = Classes/Auth/Weibo/PRWeiboOAuth.m; sourceTree = SOURCE_ROOT; };
+		93DC96EF195C0C3F004D796E /* PRSocialUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialUserInfo.h; path = Classes/Model/PRSocialUserInfo.h; sourceTree = SOURCE_ROOT; };
+		93DC96F0195C0C3F004D796E /* PRSocialUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialUserInfo.m; path = Classes/Model/PRSocialUserInfo.m; sourceTree = SOURCE_ROOT; };
 		93EAE9A3192C39E60043FE67 /* PRWeiboAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeiboAuth.h; path = Classes/Auth/Weibo/PRWeiboAuth.h; sourceTree = SOURCE_ROOT; };
 		93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeiboAuth.m; path = Classes/Auth/Weibo/PRWeiboAuth.m; sourceTree = SOURCE_ROOT; };
 		93EAE9A6192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+PRSocialJSONKeyPath.h"; path = "Classes/Utils/Categories/NSObject+PRSocialJSONKeyPath.h"; sourceTree = SOURCE_ROOT; };
@@ -245,6 +248,7 @@
 		937074E3192AEBF6009561E1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93DC96EE195C0C10004D796E /* Model */,
 				93707514192B3AF4009561E1 /* Utils */,
 				93707549192B4B2C009561E1 /* Auth */,
 				937074FE192B08EC009561E1 /* PRSocial.h */,
@@ -340,6 +344,15 @@
 				9370755F192B53AC009561E1 /* PRWeiboOAuth.m */,
 			);
 			name = Weibo;
+			sourceTree = "<group>";
+		};
+		93DC96EE195C0C10004D796E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93DC96EF195C0C3F004D796E /* PRSocialUserInfo.h */,
+				93DC96F0195C0C3F004D796E /* PRSocialUserInfo.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +491,7 @@
 				93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */,
 				93707548192B49F2009561E1 /* PRSocialHTTPRequest.m in Sources */,
 				937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */,
+				93DC96F1195C0C3F004D796E /* PRSocialUserInfo.m in Sources */,
 				93EE296F192C785B001DB007 /* PRSocialGlobalHUD.m in Sources */,
 				93461E13192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.m in Sources */,
 				93461E16192B8039007D7DA0 /* PRSocialComposeViewController.m in Sources */,
