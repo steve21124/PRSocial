@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PRSocialConfig.h"
+#import "PRSocialUserInfo.h"
 
 extern NSString * const PRSocialServiceResultNotification;
 extern NSString * const PRSocialServiceResultNotificationKeySuccess;
@@ -27,6 +28,8 @@ typedef void (^PRSocialCallback)(BOOL success, NSDictionary *result);
 
 - (void)registerService;
 - (BOOL)isAvailable;
+
+- (void)fetchUserInfoCompletion:(void (^)(BOOL success, PRSocialUserInfo *userInfo))completion;
 
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image;
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion;

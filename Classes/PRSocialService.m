@@ -50,6 +50,11 @@ NSString * const PRSocialServiceResultNotificationKeyInfo = @"PRSocialServiceRes
     return NO;
 }
 
+- (void)fetchUserInfoCompletion:(void (^)(BOOL, PRSocialUserInfo *))completion
+{
+    NSAssert(NO, @"%s Override needed on abstract method.", __PRETTY_FUNCTION__);
+}
+
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image
 {
     [self shareContentWithTitle:title description:description URL:URL image:image completion:nil];

@@ -24,6 +24,8 @@
 
 @implementation PRWeiboService
 
+#pragma mark - Override
+
 - (BOOL)isAvailable
 {
     return YES;
@@ -33,6 +35,50 @@
 {
     return [[PRWeiboAuth sharedAuth] handleSSOAuthOpenURL:URL];
 }
+
+#pragma mark - Account
+
+- (void)fetchUserInfoCompletion:(void (^)(BOOL, PRSocialUserInfo *))completion
+{
+    PRWeiboAuth *weiboAuth = [PRWeiboAuth sharedAuth];
+    [weiboAuth authorizeWithCompletionHandler:^(BOOL success) {
+        if (success) {
+            NSDictionary *requestDictionary = @{@"access_token": weiboAuth.accessToken,
+                                                @"uid": weiboAuth.userID};
+            [PRSocialHTTPRequest sendAsynchronousRequestForURL:[NSURL URLWithString:@"https://api.weibo.com/2/users/show.json"] method:HTTPMethodGET headers:nil requestBody:requestDictionary completion:^(NSDictionary *responseHeaders, NSDictionary *responseDictionary) {
+                PRSocialUserInfo *userInfo = [[PRSocialUserInfo alloc] init];
+                userInfo.userID = [responseDictionary prs_objectWithJSONKeyPath:@"id"];
+                userInfo.userName = [responseDictionary prs_objectWithJSONKeyPath:@"domain"];
+                userInfo.nickname = [responseDictionary prs_objectWithJSONKeyPath:@"name"];
+                NSString *avatarURLString = [responseDictionary prs_objectWithJSONKeyPath:@"avatar_hd"];
+                if (avatarURLString) {
+                    userInfo.avatarURL = [NSURL URLWithString:avatarURLString];
+                }
+                NSString *genderString = [responseDictionary prs_objectWithJSONKeyPath:@"gender"];
+                if ([genderString isEqualToString:@"m"]) {
+                    userInfo.gender = PRSocialUserGenderMale;
+                } else if ([genderString isEqualToString:@"f"]) {
+                    userInfo.gender = PRSocialUserGenderFemale;
+                } else if ([genderString isEqualToString:@"n"]) {
+                    userInfo.gender = PRSocialUserGenderUnknown;
+                } else {
+                    userInfo.gender = PRSocialUserGenderUnknown;
+                }
+                userInfo.intro = [responseDictionary prs_objectWithJSONKeyPath:@"description"];
+                userInfo.location = [responseDictionary prs_objectWithJSONKeyPath:@"location"];
+                if (completion) {
+                    completion(YES, userInfo);
+                }
+            }];
+        } else {
+            if (completion) {
+                completion(NO, nil);
+            }
+        }
+    }];
+}
+
+#pragma mark - Share
 
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL
 {
