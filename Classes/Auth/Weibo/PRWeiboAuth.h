@@ -13,6 +13,4 @@
 
 @property (nonatomic, assign) BOOL usesSSO;
 
-@property (nonatomic, readonly) NSString *accessToken;
-
 @end

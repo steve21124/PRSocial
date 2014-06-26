@@ -61,6 +61,11 @@
 
 #pragma mark - Getters and setters
 
+- (NSString *)userID
+{
+    return [PRWeiboOAuth sharedOAuth].userID;
+}
+
 - (NSString *)accessToken
 {
     return [PRWeiboOAuth sharedOAuth].accessToken;
@@ -90,6 +95,7 @@
         WBAuthorizeResponse *authResponse = (WBAuthorizeResponse *)response;
         if (response.statusCode == WeiboSDKResponseStatusCodeSuccess) {
             PRWeiboOAuth *weiboOAuth = [PRWeiboOAuth sharedOAuth];
+            weiboOAuth.userID = authResponse.userID;
             weiboOAuth.accessToken = authResponse.accessToken;
             weiboOAuth.accessTokenTimeout = authResponse.expirationDate;
             if (self.authCompletionHandler) {

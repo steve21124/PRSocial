@@ -13,6 +13,9 @@ typedef void (^PRSocialAuthCallback)(BOOL success);
 
 @interface PRSocialAuth : NSObject
 
+@property (nonatomic, readonly) NSString *userID;
+@property (nonatomic, readonly) NSString *accessToken;
+
 + (instancetype)sharedAuth;
 
 @end

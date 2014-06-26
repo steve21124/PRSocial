@@ -12,6 +12,7 @@
 
 @interface PRSocialOAuth : NSObject
 
+@property (nonatomic) NSString *userID;
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic) NSString *accessToken;
 @property (nonatomic) NSString *refreshToken;

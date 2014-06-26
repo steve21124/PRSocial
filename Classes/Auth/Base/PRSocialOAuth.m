@@ -12,6 +12,7 @@
 #import "PRSocialHTTPRequest.h"
 #import "PRSocialOAuth.h"
 
+NSString * const kPRSocialKeychainAccountUserID = @"UserID";
 NSString * const kPRSocialKeychainAccountAccessToken = @"AccessToken";
 NSString * const kPRSocialKeychainAccountRefreshToken = @"RefreshToken";
 NSString * const kPRSocialKeychainAccountAccessTokenTimeout = @"AccessTokenTimeout";
@@ -141,6 +142,24 @@ NSTimeInterval const kPRSocialOAuthTimeoutOffset = 300; // 5 min
 
 #pragma mark Auth info
 
+- (NSString *)userID
+{
+    return [SSKeychain passwordForService:NSStringFromClass(self.class)
+                                  account:kPRSocialKeychainAccountUserID];
+}
+
+- (void)setUserID:(NSString *)userID
+{
+    if (userID) {
+        [SSKeychain setPassword:userID
+                     forService:NSStringFromClass(self.class)
+                        account:kPRSocialKeychainAccountUserID];
+    } else {
+        [SSKeychain deletePasswordForService:NSStringFromClass(self.class)
+                                     account:kPRSocialKeychainAccountUserID];
+    }
+}
+
 - (NSString *)accessToken
 {
     return [SSKeychain passwordForService:NSStringFromClass(self.class)
@@ -220,7 +239,7 @@ NSTimeInterval const kPRSocialOAuthTimeoutOffset = 300; // 5 min
 - (BOOL)isAccessTokenValid
 {
     BOOL isAccessTokenValid = NO;
-    if (self.accessToken && self.accessTokenTimeout) {
+    if (self.userID && self.accessToken && self.accessTokenTimeout) {
         NSDate *currentDate = [NSDate date];
         NSComparisonResult comparisonResult = [currentDate compare:[self.accessTokenTimeout dateByAddingTimeInterval:kPRSocialOAuthTimeoutOffset]];
         if (comparisonResult == NSOrderedAscending) {
@@ -330,6 +349,7 @@ NSTimeInterval const kPRSocialOAuthTimeoutOffset = 300; // 5 min
 - (void)handleCodeAuthResponse:(NSDictionary *)responseDictionary
 {
     if ([responseDictionary isKindOfClass:[NSDictionary class]]) {
+        self.userID = responseDictionary[@"uid"];
         self.accessToken = responseDictionary[@"access_token"];
         self.refreshToken = responseDictionary[@"refresh_token"];
         NSInteger expiresIn = [responseDictionary[@"expires_in"] integerValue];
