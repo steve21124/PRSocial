@@ -9,6 +9,7 @@
 #import <Social/Social.h>
 #import "PRSocialGlobalHUD.h"
 #import "UIApplication+PRSocialTopWindow.h"
+#import "UIWindow+PRSocialTopViewController.h"
 #import "PRSocialComposeViewController.h"
 #import "NSString+PRSocialURLCoding.h"
 #import "NSObject+PRSocialJSONKeyPath.h"
@@ -118,7 +119,7 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication].topWindow.rootViewController presentViewController:composeViewController animated:YES completion:nil];
+            [[UIApplication sharedApplication].topWindow.topViewController presentViewController:composeViewController animated:YES completion:nil];
         });
     } else {
         [[PRWeiboAuth sharedAuth] authorizeWithCompletionHandler:^(BOOL success) {
@@ -155,7 +156,7 @@
         UINavigationController *composeNavigationController = [[UINavigationController alloc] initWithRootViewController:composeViewController];
         [PRSocialGlobalHUD hide];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication].topWindow.rootViewController presentViewController:composeNavigationController animated:YES completion:nil];
+            [[UIApplication sharedApplication].topWindow.topViewController presentViewController:composeNavigationController animated:YES completion:nil];
         });
     });
 }

@@ -8,6 +8,7 @@
 
 #import "NSString+PRSocialURLCoding.h"
 #import "UIApplication+PRSocialTopWindow.h"
+#import "UIWindow+PRSocialTopViewController.h"
 #import "PRSocialAuthWebViewController.h"
 
 @interface PRSocialAuthWebViewController ()
@@ -87,7 +88,7 @@
 {
     UINavigationController *navigationController = [PRSocialAuthWebViewController navigationControllerWithAuthURL:authURL callbackURL:callbackURL delegate:delegate];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[UIApplication sharedApplication].topWindow.rootViewController presentViewController:navigationController animated:YES completion:nil];
+        [[UIApplication sharedApplication].topWindow.topViewController presentViewController:navigationController animated:YES completion:nil];
     });
 }
 
