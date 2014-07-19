@@ -167,11 +167,18 @@
 {
     NSString *shortenedLink;
     if (link.length) {
-        NSDictionary *requestDictionary = @{@"access_token": [PRWeiboAuth sharedAuth].accessToken,
+        NSDictionary *requestDictionary = @{@"source": [[PRSocialConfig defaultConfig] valueForKey:kPRSocialConfigKeyAppID
+                                                                                    forServiceName:NSStringFromClass(self.class)],
+                                            @"access_token": [PRWeiboAuth sharedAuth].accessToken,
                                             @"url_long": link};
         NSURL *URLWithData = [NSURL URLWithString:[@"https://api.weibo.com/2/short_url/shorten.json" stringByAppendingFormat:@"?%@", [NSString prs_stringWithURLEncodedDictionary:requestDictionary]]];
-        NSDictionary *responseDictionary = [PRSocialHTTPRequest sendSynchronousRequestForURL:URLWithData method:HTTPMethodGET headers:nil requestBody:nil responseHeaders:nil];
-        if ([[responseDictionary prs_objectWithJSONKeyPath:@"urls..0.url_long"] isEqualToString:link]) {
+        NSDictionary *responseDictionary = [PRSocialHTTPRequest sendSynchronousRequestForURL:URLWithData
+                                                                                      method:HTTPMethodGET
+                                                                                     headers:nil
+                                                                                 requestBody:nil
+                                                                             responseHeaders:nil];
+        if (YES || // Fix for Weibo's bug
+            [[responseDictionary prs_objectWithJSONKeyPath:@"urls..0.url_long"] isEqualToString:link]) {
             shortenedLink = [responseDictionary prs_objectWithJSONKeyPath:@"urls..0.url_short"];
         }
     }
