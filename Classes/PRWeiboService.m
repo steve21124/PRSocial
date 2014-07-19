@@ -143,7 +143,7 @@
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [PRSocialGlobalHUD show];
-        NSString *shortenedLink = [self shortLinkForLink:URL.absoluteString];
+        NSString *shortenedLink = [self shortLinkForLink:URL.absoluteString] ?: URL.absoluteString;
         PRSocialComposeViewController *composeViewController = [[PRSocialComposeViewController alloc] init];
         composeViewController.delegate = self;
         composeViewController.title = title;
