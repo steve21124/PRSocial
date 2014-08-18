@@ -7,6 +7,8 @@
 //
 
 #import "WXApi.h"
+#import "PRSocialHTTPFormDataRequest.h"
+#import "NSObject+PRSocialJSONKeyPath.h"
 #import "PRWeChatService.h"
 
 @interface PRWeChatService () <WXApiDelegate>
@@ -16,6 +18,8 @@
 @end
 
 @implementation PRWeChatService
+
+#pragma mark - Override
 
 - (void)registerService
 {
@@ -29,6 +33,70 @@
 {
     return [WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi];
 }
+
+- (BOOL)handleOpenURL:(NSURL *)URL
+{
+    return [WXApi handleOpenURL:URL delegate:self];
+}
+
+#pragma mark - Account
+
+- (void)fetchUserInfoCompletion:(void (^)(BOOL, PRSocialUserInfo *))completion
+{
+    PRWeChatAuth *weChatAuth = [PRWeChatAuth sharedAuth];
+    [weChatAuth authorizeWithCompletionHandler:^(BOOL success) {
+        if (success) {
+            NSDictionary *requestDictionary = @{@"openid": weChatAuth.userID,
+                                                @"access_token": weChatAuth.accessToken};
+            NSURL *requestURL = [NSURL URLWithString:@"https://api.weixin.qq.com/sns/userinfo"];
+            [PRSocialHTTPRequest sendAsynchronousRequestForURL:requestURL
+                                                        method:HTTPMethodGET
+                                                       headers:nil
+                                                   requestBody:requestDictionary
+                                                    completion:^(NSDictionary *responseHeaders,
+                                                                 NSDictionary *responseDictionary) {
+                                                        PRSocialUserInfo *userInfo = [[PRSocialUserInfo alloc] init];
+                                                        userInfo.userID = [responseDictionary prs_objectWithJSONKeyPath:@"openid"];
+                                                        userInfo.userName = [responseDictionary prs_objectWithJSONKeyPath:@"unionid"];
+                                                        userInfo.nickname = [responseDictionary prs_objectWithJSONKeyPath:@"nickname"];
+                                                        NSString *avatarURLString = [responseDictionary prs_objectWithJSONKeyPath:@"headimgurl"];
+                                                        if (avatarURLString) {
+                                                            userInfo.avatarURL = [NSURL URLWithString:avatarURLString];
+                                                        }
+                                                        NSUInteger genderInt = [[responseDictionary prs_objectWithJSONKeyPath:@"sex"] integerValue];
+                                                        if (genderInt == 1) {
+                                                            userInfo.gender = PRSocialUserGenderMale;
+                                                        } else if (genderInt == 2) {
+                                                            userInfo.gender = PRSocialUserGenderFemale;
+                                                        } else {
+                                                            userInfo.gender = PRSocialUserGenderUnknown;
+                                                        }
+                                                        NSString *locationCountry = [responseDictionary prs_objectWithJSONKeyPath:@"country"];
+                                                        NSString *locationState = [responseDictionary prs_objectWithJSONKeyPath:@"province"];
+                                                        NSString *locationCity = [responseDictionary prs_objectWithJSONKeyPath:@"city"];
+                                                        NSMutableString *location = locationCountry.mutableCopy;
+                                                        if (locationState.length) {
+                                                            if (location.length) [location appendString:@" "];
+                                                            [location appendString:locationState];
+                                                        }
+                                                        if (locationCity.length) {
+                                                            if (location.length) [location appendString:@" "];
+                                                            [location appendString:locationCity];
+                                                        }
+                                                        userInfo.location = location;
+                                                        if (completion) {
+                                                            completion(YES, userInfo);
+                                                        }
+                                                    }];
+        } else {
+            if (completion) {
+                completion(NO, nil);
+            }
+        }
+    }];
+}
+
+#pragma mark - Share
 
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion
 {
@@ -71,11 +139,6 @@
     req.scene = (scene == PRWeChatServiceSceneSession) ? WXSceneSession : WXSceneTimeline;
     
     [WXApi sendReq:req];
-}
-
-- (BOOL)handleOpenURL:(NSURL *)URL
-{
-    return [WXApi handleOpenURL:URL delegate:self];
 }
 
 #pragma mark - Utils
