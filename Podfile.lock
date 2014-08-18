@@ -1,16 +1,19 @@
 PODS:
   - MBProgressHUD (0.8)
   - SSKeychain (1.2.2)
+  - TencentOpenApiSDK (2.3.1)
   - Weibo (2.4.2)
 
 DEPENDENCIES:
   - MBProgressHUD (~> 0.8)
   - SSKeychain (~> 1.2.2)
+  - TencentOpenApiSDK (~> 2.3.1)
   - Weibo (~> 2.4.2)
 
 SPEC CHECKSUMS:
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  TencentOpenApiSDK: 81ca5a91c44a5390ce9586d8133cf093048a508a
   Weibo: 8ac9c24884290718ca62da62301165d209f7336c
 
 COCOAPODS: 0.33.1
