@@ -38,6 +38,8 @@
 		9370755B192B535F009561E1 /* PRSocialAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93707558192B535F009561E1 /* PRSocialAuth.m */; };
 		9370755C192B535F009561E1 /* PRSocialOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370755A192B535F009561E1 /* PRSocialOAuth.m */; };
 		93707560192B53AC009561E1 /* PRWeiboOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370755F192B53AC009561E1 /* PRWeiboOAuth.m */; };
+		937CA08D199E035700732FD6 /* PRWeChatAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 937CA08C199E035700732FD6 /* PRWeChatAuth.m */; };
+		937CA090199E037E00732FD6 /* PRWeChatOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 937CA08F199E037E00732FD6 /* PRWeChatOAuth.m */; };
 		93DC96F1195C0C3F004D796E /* PRSocialUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DC96F0195C0C3F004D796E /* PRSocialUserInfo.m */; };
 		93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */; };
 		93EAE9A8192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */; };
@@ -110,6 +112,10 @@
 		9370755A192B535F009561E1 /* PRSocialOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialOAuth.m; path = Classes/Auth/Base/PRSocialOAuth.m; sourceTree = SOURCE_ROOT; };
 		9370755E192B53AC009561E1 /* PRWeiboOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeiboOAuth.h; path = Classes/Auth/Weibo/PRWeiboOAuth.h; sourceTree = SOURCE_ROOT; };
 		9370755F192B53AC009561E1 /* PRWeiboOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeiboOAuth.m; path = Classes/Auth/Weibo/PRWeiboOAuth.m; sourceTree = SOURCE_ROOT; };
+		937CA08B199E035700732FD6 /* PRWeChatAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeChatAuth.h; path = Classes/Auth/WeChat/PRWeChatAuth.h; sourceTree = SOURCE_ROOT; };
+		937CA08C199E035700732FD6 /* PRWeChatAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeChatAuth.m; path = Classes/Auth/WeChat/PRWeChatAuth.m; sourceTree = SOURCE_ROOT; };
+		937CA08E199E037E00732FD6 /* PRWeChatOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeChatOAuth.h; path = Classes/Auth/WeChat/PRWeChatOAuth.h; sourceTree = SOURCE_ROOT; };
+		937CA08F199E037E00732FD6 /* PRWeChatOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeChatOAuth.m; path = Classes/Auth/WeChat/PRWeChatOAuth.m; sourceTree = SOURCE_ROOT; };
 		93DC96EF195C0C3F004D796E /* PRSocialUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialUserInfo.h; path = Classes/Model/PRSocialUserInfo.h; sourceTree = SOURCE_ROOT; };
 		93DC96F0195C0C3F004D796E /* PRSocialUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialUserInfo.m; path = Classes/Model/PRSocialUserInfo.m; sourceTree = SOURCE_ROOT; };
 		93EAE9A3192C39E60043FE67 /* PRWeiboAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeiboAuth.h; path = Classes/Auth/Weibo/PRWeiboAuth.h; sourceTree = SOURCE_ROOT; };
@@ -324,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				93707556192B5264009561E1 /* Base */,
+				937CA08A199E033C00732FD6 /* WeChat */,
 				9370755D192B5381009561E1 /* Weibo */,
 			);
 			name = Auth;
@@ -349,6 +356,17 @@
 				9370755F192B53AC009561E1 /* PRWeiboOAuth.m */,
 			);
 			name = Weibo;
+			sourceTree = "<group>";
+		};
+		937CA08A199E033C00732FD6 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				937CA08B199E035700732FD6 /* PRWeChatAuth.h */,
+				937CA08C199E035700732FD6 /* PRWeChatAuth.m */,
+				937CA08E199E037E00732FD6 /* PRWeChatOAuth.h */,
+				937CA08F199E037E00732FD6 /* PRWeChatOAuth.m */,
+			);
+			name = WeChat;
 			sourceTree = "<group>";
 		};
 		93DC96EE195C0C10004D796E /* Model */ = {
@@ -502,12 +520,14 @@
 				93461E16192B8039007D7DA0 /* PRSocialComposeViewController.m in Sources */,
 				9370755B192B535F009561E1 /* PRSocialAuth.m in Sources */,
 				93EAE9AB192C46240043FE67 /* PRSocialHTTPFormDataRequest.m in Sources */,
+				937CA090199E037E00732FD6 /* PRWeChatOAuth.m in Sources */,
 				937074B5192AE68D009561E1 /* PRAppDelegate.m in Sources */,
 				937074FA192AF36E009561E1 /* PRSocialConfig.m in Sources */,
 				93707509192B2F28009561E1 /* PRWeiboService.m in Sources */,
 				93707537192B45F6009561E1 /* PRSocialAuthWebViewController.m in Sources */,
 				9370755C192B535F009561E1 /* PRSocialOAuth.m in Sources */,
 				933FCF1D196655C200F45D83 /* UIWindow+PRSocialTopViewController.m in Sources */,
+				937CA08D199E035700732FD6 /* PRWeChatAuth.m in Sources */,
 				9370752C192B3DCE009561E1 /* NSString+PRSocialURLCoding.m in Sources */,
 				937074E9192AEC14009561E1 /* PRSocialService.m in Sources */,
 				93EAE9A8192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m in Sources */,

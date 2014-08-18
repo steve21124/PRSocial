@@ -7,6 +7,7 @@
 //
 
 #import "PRSocialService.h"
+#import "PRWeChatAuth.h"
 
 typedef NS_ENUM(NSUInteger, PRWeChatServiceScene) {
     PRWeChatServiceSceneSession,

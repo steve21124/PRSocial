@@ -93,13 +93,17 @@
 
 - (void)onResp:(BaseResp *)resp
 {
-    BOOL success = resp.errCode == WXSuccess;
-    [[NSNotificationCenter defaultCenter] postNotificationName:PRSocialServiceResultNotification
-                                                        object:self
-                                                      userInfo:@{PRSocialServiceResultNotificationKeySuccess: @(success)}];
-    if (self.completionHandler) {
-        self.completionHandler(success, nil);
-        self.completionHandler = nil;
+    if ([resp isKindOfClass:SendAuthResp.class]) {
+        [[PRWeChatOAuth sharedOAuth] onResp:(SendAuthResp *)resp];
+    } else {
+        BOOL success = resp.errCode == WXSuccess;
+        [[NSNotificationCenter defaultCenter] postNotificationName:PRSocialServiceResultNotification
+                                                            object:self
+                                                          userInfo:@{PRSocialServiceResultNotificationKeySuccess: @(success)}];
+        if (self.completionHandler) {
+            self.completionHandler(success, nil);
+            self.completionHandler = nil;
+        }
     }
 }
 
