@@ -25,7 +25,7 @@
 
 - (void)authorizeWithCompletionHandler:(PRSocialAuthCallback)completion
 {
-    if (![PRWeiboOAuth sharedOAuth].isAuthorized && _usesSSO && [WeiboSDK isWeiboAppInstalled]) {
+    if (!self.isAuthorized && _usesSSO && [WeiboSDK isWeiboAppInstalled]) {
         self.authCompletionHandler = completion;
         [self sendSSOAuthRequest];
     } else {
