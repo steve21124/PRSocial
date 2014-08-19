@@ -39,7 +39,7 @@
 
 #pragma mark - Account
 
-- (void)fetchUserInfoCompletion:(void (^)(BOOL, PRSocialUserInfo *))completion
+- (void)fetchUserInfoCompletion:(PRSocialUserInfoCallback)completion
 {
     PRWeiboAuth *weiboAuth = [PRWeiboAuth sharedAuth];
     [weiboAuth authorizeWithCompletionHandler:^(BOOL success) {

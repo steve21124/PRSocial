@@ -41,7 +41,7 @@
 
 #pragma mark - Account
 
-- (void)fetchUserInfoCompletion:(void (^)(BOOL, PRSocialUserInfo *))completion
+- (void)fetchUserInfoCompletion:(PRSocialUserInfoCallback)completion
 {
     PRWeChatAuth *weChatAuth = [PRWeChatAuth sharedAuth];
     [weChatAuth authorizeWithCompletionHandler:^(BOOL success) {

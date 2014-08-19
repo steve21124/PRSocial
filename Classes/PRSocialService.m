@@ -50,7 +50,7 @@ NSString * const PRSocialServiceResultNotificationKeyInfo = @"PRSocialServiceRes
     return NO;
 }
 
-- (void)fetchUserInfoCompletion:(void (^)(BOOL, PRSocialUserInfo *))completion
+- (void)fetchUserInfoCompletion:(PRSocialUserInfoCallback)completion
 {
     NSAssert(NO, @"%s Override needed on abstract method.", __PRETTY_FUNCTION__);
 }

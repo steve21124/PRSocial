@@ -15,6 +15,7 @@ extern NSString * const PRSocialServiceResultNotificationKeySuccess;
 extern NSString * const PRSocialServiceResultNotificationKeyInfo;
 
 typedef void (^PRSocialCallback)(BOOL success, NSDictionary *result);
+typedef void (^PRSocialUserInfoCallback)(BOOL success, PRSocialUserInfo *userInfo);
 
 @interface PRSocialService : NSObject
 
@@ -29,7 +30,7 @@ typedef void (^PRSocialCallback)(BOOL success, NSDictionary *result);
 - (void)registerService;
 - (BOOL)isAvailable;
 
-- (void)fetchUserInfoCompletion:(void (^)(BOOL success, PRSocialUserInfo *userInfo))completion;
+- (void)fetchUserInfoCompletion:(PRSocialUserInfoCallback)completion;
 
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image;
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion;
