@@ -40,6 +40,14 @@
 		93707560192B53AC009561E1 /* PRWeiboOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9370755F192B53AC009561E1 /* PRWeiboOAuth.m */; };
 		937CA08D199E035700732FD6 /* PRWeChatAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 937CA08C199E035700732FD6 /* PRWeChatAuth.m */; };
 		937CA090199E037E00732FD6 /* PRWeChatOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 937CA08F199E037E00732FD6 /* PRWeChatOAuth.m */; };
+		93B2D1D619A1EDCF00ED196D /* PRTencentAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B2D1D519A1EDCF00ED196D /* PRTencentAuth.m */; };
+		93B2D1D919A1EE6B00ED196D /* PRTencentOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B2D1D819A1EE6B00ED196D /* PRTencentOAuth.m */; };
+		93B2D1DD19A1F26300ED196D /* PRTencentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B2D1DC19A1F26300ED196D /* PRTencentService.m */; };
+		93B2D1DF19A1F61900ED196D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B2D1DE19A1F61900ED196D /* libsqlite3.dylib */; };
+		93B2D1E319A1F62D00ED196D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B2D1E219A1F62D00ED196D /* CoreTelephony.framework */; };
+		93B2D1E519A1F63E00ED196D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B2D1E419A1F63E00ED196D /* SystemConfiguration.framework */; };
+		93B2D1E919A1F65600ED196D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B2D1E819A1F65600ED196D /* libstdc++.dylib */; };
+		93B2D1EB19A1F67400ED196D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B2D1EA19A1F67400ED196D /* libz.dylib */; };
 		93DC96F1195C0C3F004D796E /* PRSocialUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DC96F0195C0C3F004D796E /* PRSocialUserInfo.m */; };
 		93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A4192C39E60043FE67 /* PRWeiboAuth.m */; };
 		93EAE9A8192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EAE9A7192C437D0043FE67 /* NSObject+PRSocialJSONKeyPath.m */; };
@@ -116,6 +124,19 @@
 		937CA08C199E035700732FD6 /* PRWeChatAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeChatAuth.m; path = Classes/Auth/WeChat/PRWeChatAuth.m; sourceTree = SOURCE_ROOT; };
 		937CA08E199E037E00732FD6 /* PRWeChatOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeChatOAuth.h; path = Classes/Auth/WeChat/PRWeChatOAuth.h; sourceTree = SOURCE_ROOT; };
 		937CA08F199E037E00732FD6 /* PRWeChatOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRWeChatOAuth.m; path = Classes/Auth/WeChat/PRWeChatOAuth.m; sourceTree = SOURCE_ROOT; };
+		93B2D1D419A1EDCF00ED196D /* PRTencentAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRTencentAuth.h; path = Classes/Auth/Tencent/PRTencentAuth.h; sourceTree = SOURCE_ROOT; };
+		93B2D1D519A1EDCF00ED196D /* PRTencentAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRTencentAuth.m; path = Classes/Auth/Tencent/PRTencentAuth.m; sourceTree = SOURCE_ROOT; };
+		93B2D1D719A1EE6B00ED196D /* PRTencentOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRTencentOAuth.h; path = Classes/Auth/Tencent/PRTencentOAuth.h; sourceTree = SOURCE_ROOT; };
+		93B2D1D819A1EE6B00ED196D /* PRTencentOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRTencentOAuth.m; path = Classes/Auth/Tencent/PRTencentOAuth.m; sourceTree = SOURCE_ROOT; };
+		93B2D1DB19A1F26300ED196D /* PRTencentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRTencentService.h; path = Classes/PRTencentService.h; sourceTree = SOURCE_ROOT; };
+		93B2D1DC19A1F26300ED196D /* PRTencentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRTencentService.m; path = Classes/PRTencentService.m; sourceTree = SOURCE_ROOT; };
+		93B2D1DE19A1F61900ED196D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		93B2D1E019A1F62200ED196D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		93B2D1E219A1F62D00ED196D /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		93B2D1E419A1F63E00ED196D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		93B2D1E619A1F64A00ED196D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		93B2D1E819A1F65600ED196D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		93B2D1EA19A1F67400ED196D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		93DC96EF195C0C3F004D796E /* PRSocialUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRSocialUserInfo.h; path = Classes/Model/PRSocialUserInfo.h; sourceTree = SOURCE_ROOT; };
 		93DC96F0195C0C3F004D796E /* PRSocialUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRSocialUserInfo.m; path = Classes/Model/PRSocialUserInfo.m; sourceTree = SOURCE_ROOT; };
 		93EAE9A3192C39E60043FE67 /* PRWeiboAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRWeiboAuth.h; path = Classes/Auth/Weibo/PRWeiboAuth.h; sourceTree = SOURCE_ROOT; };
@@ -135,6 +156,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B2D1EB19A1F67400ED196D /* libz.dylib in Frameworks */,
+				93B2D1E919A1F65600ED196D /* libstdc++.dylib in Frameworks */,
+				93B2D1E519A1F63E00ED196D /* SystemConfiguration.framework in Frameworks */,
+				93B2D1E319A1F62D00ED196D /* CoreTelephony.framework in Frameworks */,
+				93B2D1DF19A1F61900ED196D /* libsqlite3.dylib in Frameworks */,
 				9370750B192B2F45009561E1 /* Social.framework in Frameworks */,
 				937074A7192AE68D009561E1 /* CoreGraphics.framework in Frameworks */,
 				937074A9192AE68D009561E1 /* UIKit.framework in Frameworks */,
@@ -180,6 +206,13 @@
 		937074A3192AE68D009561E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93B2D1EA19A1F67400ED196D /* libz.dylib */,
+				93B2D1E819A1F65600ED196D /* libstdc++.dylib */,
+				93B2D1E619A1F64A00ED196D /* libc++.dylib */,
+				93B2D1E419A1F63E00ED196D /* SystemConfiguration.framework */,
+				93B2D1E219A1F62D00ED196D /* CoreTelephony.framework */,
+				93B2D1E019A1F62200ED196D /* CFNetwork.framework */,
+				93B2D1DE19A1F61900ED196D /* libsqlite3.dylib */,
 				9370750A192B2F45009561E1 /* Social.framework */,
 				93707505192B2D74009561E1 /* libPods-PRSocialDemo.a */,
 				937074D6192AE8BE009561E1 /* WeChat */,
@@ -265,6 +298,8 @@
 				937074E8192AEC14009561E1 /* PRSocialService.m */,
 				937074F8192AF36E009561E1 /* PRSocialConfig.h */,
 				937074F9192AF36E009561E1 /* PRSocialConfig.m */,
+				93B2D1DB19A1F26300ED196D /* PRTencentService.h */,
+				93B2D1DC19A1F26300ED196D /* PRTencentService.m */,
 				937074F0192AF035009561E1 /* PRWeChatService.h */,
 				937074F1192AF035009561E1 /* PRWeChatService.m */,
 				93707507192B2F28009561E1 /* PRWeiboService.h */,
@@ -330,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				93707556192B5264009561E1 /* Base */,
+				93B2E5EF19A1D9A600895437 /* Tencent */,
 				937CA08A199E033C00732FD6 /* WeChat */,
 				9370755D192B5381009561E1 /* Weibo */,
 			);
@@ -367,6 +403,17 @@
 				937CA08F199E037E00732FD6 /* PRWeChatOAuth.m */,
 			);
 			name = WeChat;
+			sourceTree = "<group>";
+		};
+		93B2E5EF19A1D9A600895437 /* Tencent */ = {
+			isa = PBXGroup;
+			children = (
+				93B2D1D419A1EDCF00ED196D /* PRTencentAuth.h */,
+				93B2D1D519A1EDCF00ED196D /* PRTencentAuth.m */,
+				93B2D1D719A1EE6B00ED196D /* PRTencentOAuth.h */,
+				93B2D1D819A1EE6B00ED196D /* PRTencentOAuth.m */,
+			);
+			name = Tencent;
 			sourceTree = "<group>";
 		};
 		93DC96EE195C0C10004D796E /* Model */ = {
@@ -514,10 +561,12 @@
 				93EAE9A5192C39E60043FE67 /* PRWeiboAuth.m in Sources */,
 				93707548192B49F2009561E1 /* PRSocialHTTPRequest.m in Sources */,
 				937074E2192AEB22009561E1 /* PRRootViewController.m in Sources */,
+				93B2D1DD19A1F26300ED196D /* PRTencentService.m in Sources */,
 				93DC96F1195C0C3F004D796E /* PRSocialUserInfo.m in Sources */,
 				93EE296F192C785B001DB007 /* PRSocialGlobalHUD.m in Sources */,
 				93461E13192B7FA1007D7DA0 /* NSString+PRSocialASCIILength.m in Sources */,
 				93461E16192B8039007D7DA0 /* PRSocialComposeViewController.m in Sources */,
+				93B2D1D919A1EE6B00ED196D /* PRTencentOAuth.m in Sources */,
 				9370755B192B535F009561E1 /* PRSocialAuth.m in Sources */,
 				93EAE9AB192C46240043FE67 /* PRSocialHTTPFormDataRequest.m in Sources */,
 				937CA090199E037E00732FD6 /* PRWeChatOAuth.m in Sources */,
@@ -534,6 +583,7 @@
 				93707560192B53AC009561E1 /* PRWeiboOAuth.m in Sources */,
 				937074B1192AE68D009561E1 /* main.m in Sources */,
 				93461E0D192B6AA7007D7DA0 /* UIApplication+PRSocialTopWindow.m in Sources */,
+				93B2D1D619A1EDCF00ED196D /* PRTencentAuth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

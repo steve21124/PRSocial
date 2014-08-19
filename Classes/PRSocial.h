@@ -10,3 +10,4 @@
 #import "PRSocialConfig.h"
 #import "PRWeChatService.h"
 #import "PRWeiboService.h"
+#import "PRTencentService.h"
