@@ -76,6 +76,7 @@
         NSDictionary *responseDictionary = response.jsonResponse;
         PRSocialUserInfo *userInfo = [[PRSocialUserInfo alloc] init];
         userInfo.userID = [PRTencentAuth sharedAuth].userID;
+        userInfo.accessToken = [PRTencentAuth sharedAuth].accessToken;
         userInfo.nickname = [responseDictionary prs_objectWithJSONKeyPath:@"nickname"];
         NSString *avatarURLString = [responseDictionary prs_objectWithJSONKeyPath:@"figureurl_qq_2"];
         if (avatarURLString) {

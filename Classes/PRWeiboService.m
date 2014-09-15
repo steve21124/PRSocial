@@ -49,6 +49,7 @@
             [PRSocialHTTPRequest sendAsynchronousRequestForURL:[NSURL URLWithString:@"https://api.weibo.com/2/users/show.json"] method:HTTPMethodGET headers:nil requestBody:requestDictionary completion:^(NSDictionary *responseHeaders, NSDictionary *responseDictionary) {
                 PRSocialUserInfo *userInfo = [[PRSocialUserInfo alloc] init];
                 userInfo.userID = [responseDictionary prs_objectWithJSONKeyPath:@"id"];
+                userInfo.accessToken = weiboAuth.accessToken;
                 userInfo.userName = [responseDictionary prs_objectWithJSONKeyPath:@"domain"];
                 userInfo.nickname = [responseDictionary prs_objectWithJSONKeyPath:@"name"];
                 NSString *avatarURLString = [responseDictionary prs_objectWithJSONKeyPath:@"avatar_hd"];

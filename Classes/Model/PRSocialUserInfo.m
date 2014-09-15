@@ -27,7 +27,7 @@
             genderString = @"Other";
             break;
     }
-    NSString *description = [NSString stringWithFormat:@"<%@: %p> UserID: %@; UserName: %@; Nickname: %@; AvatarURL: %@; Gender: %@; Intro: %@; Location: %@", NSStringFromClass(self.class), self, self.userID, self.userName, self.nickname, self.avatarURL, genderString, self.intro, self.location];
+    NSString *description = [NSString stringWithFormat:@"<%@: %p> UserID: %@; AccessToken: %@; UserName: %@; Nickname: %@; AvatarURL: %@; Gender: %@; Intro: %@; Location: %@", NSStringFromClass(self.class), self, self.userID, self.accessToken, self.userName, self.nickname, self.avatarURL, genderString, self.intro, self.location];
     return description;
 }
 

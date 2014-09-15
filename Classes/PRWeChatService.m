@@ -57,6 +57,7 @@
                                                                  NSDictionary *responseDictionary) {
                                                         PRSocialUserInfo *userInfo = [[PRSocialUserInfo alloc] init];
                                                         userInfo.userID = [responseDictionary prs_objectWithJSONKeyPath:@"openid"];
+                                                        userInfo.accessToken = weChatAuth.accessToken;
                                                         userInfo.userName = [responseDictionary prs_objectWithJSONKeyPath:@"unionid"];
                                                         userInfo.nickname = [responseDictionary prs_objectWithJSONKeyPath:@"nickname"];
                                                         NSString *avatarURLString = [responseDictionary prs_objectWithJSONKeyPath:@"headimgurl"];

@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, PRSocialUserGender) {
 @interface PRSocialUserInfo : NSObject
 
 @property (nonatomic, copy) NSString *userID;
+@property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, strong) NSURL *avatarURL;
