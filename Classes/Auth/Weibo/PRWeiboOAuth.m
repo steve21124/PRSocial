@@ -21,6 +21,18 @@
     return webViewAuthRequestDictionary;
 }
 
+- (NSDictionary *)codeAuthRequestDictionary
+{
+    NSDictionary *requestDictionary = @{
+                                        @"client_id": self.clientID,
+                                        @"client_secret": self.clientSecret,
+                                        @"redirect_uri": self.redirectURI,
+                                        @"grant_type": @"authorization_code",
+                                        @"code": self.code
+                                        };
+    return requestDictionary;
+}
+
 - (NSString *)authorizeLink
 {
     return @"https://api.weibo.com/oauth2/authorize";
