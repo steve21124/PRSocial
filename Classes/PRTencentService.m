@@ -22,7 +22,7 @@
 - (void)registerService
 {
     self.tencentAPI = [[TencentOAuth alloc] initWithAppId:[[PRSocialConfig defaultConfig] valueForKey:kPRSocialConfigKeyAppID
-                                                                                       forServiceName:NSStringFromClass(PRTencentService.class)]
+                                                                                       forServiceName:NSStringFromClass(self.class)]
                                               andDelegate:self];
 }
 
@@ -33,7 +33,21 @@
 
 - (BOOL)handleOpenURL:(NSURL *)URL
 {
-    return [[PRTencentAuth sharedAuth] handleSSOAuthOpenURL:URL];
+    QQApiMessage *message = [QQApi handleOpenURL:URL];
+    if (message) {
+        if (message.type == QQApiMessageTypeSendMessageToQQResponse) {
+            QQApiObject *object = message.object;
+            if ([object isKindOfClass:[QQApiResultObject class]]) {
+                BOOL success = [(QQApiResultObject *)object error].integerValue == 0;
+                if (self.completionHandler) {
+                    self.completionHandler(success, nil);
+                }
+            }
+        }
+        return YES;
+    } else {
+        return [[PRTencentAuth sharedAuth] handleSSOAuthOpenURL:URL];
+    }
 }
 
 #pragma mark - Account
@@ -51,6 +65,76 @@
             }
         }
     }];
+}
+
+#pragma mark - Share
+
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image
+{
+    [self shareContentWithTitle:title description:description URL:URL image:image scene:PRTencentServiceSceneQQ];
+}
+
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion
+{
+    [self shareContentWithTitle:title description:description URL:URL image:image scene:PRTencentServiceSceneQQ completion:PRTencentServiceSceneQQ];
+}
+
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image scene:(PRTencentServiceScene)scene
+{
+    [self shareContentWithTitle:title description:description URL:URL image:image scene:scene completion:nil];
+}
+
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image scene:(PRTencentServiceScene)scene completion:(PRSocialCallback)completion;
+{
+    self.completionHandler = completion;
+    if (scene == PRTencentServiceSceneQQ) {
+        QQApiURLObject *object = [QQApiURLObject objectWithURL:URL
+                                                         title:title
+                                                   description:description
+                                              previewImageData:UIImagePNGRepresentation(image)
+                                             targetContentType:QQApiURLTargetTypeNews];
+        QQApiMessage *message = [QQApiMessage messageWithObject:object
+                                                        andType:QQApiMessageTypeSendMessageToQQRequest];
+        [QQApi sendMessage:message];
+    } else if (scene == PRTencentServiceSceneQzone) {
+        QQApiURLObject *object = [QQApiURLObject objectWithURL:URL
+                                                         title:title
+                                                   description:description
+                                              previewImageData:UIImagePNGRepresentation(image)
+                                             targetContentType:QQApiURLTargetTypeNews];
+        QQApiMessage *message = [QQApiMessage messageWithObject:object
+                                                        andType:QQApiMessageTypeSendMessageToQQQZoneRequest];
+        [QQApi sendMessage:message];
+    }
+}
+
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL scene:(PRTencentServiceScene)scene
+{
+    [self shareContentWithTitle:title description:description URL:URL imageURL:imageURL scene:scene completion:nil];
+}
+
+- (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL scene:(PRTencentServiceScene)scene completion:(PRSocialCallback)completion
+{
+    self.completionHandler = completion;
+    if (scene == PRTencentServiceSceneQQ) {
+        QQApiURLObject *object = [QQApiURLObject objectWithURL:URL
+                                                         title:title
+                                                   description:description
+                                               previewImageURL:imageURL
+                                             targetContentType:QQApiURLTargetTypeNews];
+        QQApiMessage *message = [QQApiMessage messageWithObject:object
+                                                        andType:QQApiMessageTypeSendMessageToQQRequest];
+        [QQApi sendMessage:message];
+    } else if (scene == PRTencentServiceSceneQzone) {
+        QQApiURLObject *object = [QQApiURLObject objectWithURL:URL
+                                                         title:title
+                                                   description:description
+                                               previewImageURL:imageURL
+                                             targetContentType:QQApiURLTargetTypeNews];
+        QQApiMessage *message = [QQApiMessage messageWithObject:object
+                                                        andType:QQApiMessageTypeSendMessageToQQQZoneRequest];
+        [QQApi sendMessage:message];
+    }
 }
 
 #pragma mark - TencentSessionDelegate
