@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "PRSocial"
-  s.version               = "0.1.12"
+  s.version               = "0.1.13"
   s.summary               = "Share contents on social network."
   s.homepage              = "https://github.com/Elethom/PRSocial"
   s.license               = { :type => "MIT", :file => "LICENSE" }
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url      = "http://twitter.com/ElethomHunter"
   s.platform              = :ios
   s.ios.deployment_target = "6.0"
-  s.source                = { :git => "https://github.com/Elethom/PRSocial.git", :tag => "0.1.12" }
+  s.source                = { :git => "https://github.com/Elethom/PRSocial.git", :tag => "0.1.13" }
   s.source_files          = "Classes", "Classes/**/*", "Frameworks/*.h", "Frameworks/**/*.h"
   s.frameworks            = "Foundation", "UIKit", "CoreGraphics", "Social", "CoreTelephony"
   s.libraries             = "z", "sqlite3", "stdc++"
