@@ -73,10 +73,17 @@
             NSString *key = [component substringToIndex:dividerLocation].prs_URLDecodedString;
             NSString *value = [component substringFromIndex:dividerLocation + 1].prs_URLDecodedString;
             if (![decodedDictionary.allKeys containsObject:key]) {
-                [decodedDictionary setValue:value forKey:key];
+                [decodedDictionary setValue:value
+                                     forKey:key];
             } else {
-                NSString *oldValue = [decodedDictionary valueForKey:key];
-                [decodedDictionary setValue:@[value, oldValue] forKey:key];
+                id oldValue = [decodedDictionary valueForKey:key];
+                if ([oldValue isKindOfClass:[NSArray class]]) {
+                    [decodedDictionary setValue:[oldValue arrayByAddingObject:value]
+                                         forKey:key];
+                } else if ([oldValue isKindOfClass:[NSString class]]) {
+                    [decodedDictionary setValue:@[oldValue, value]
+                                         forKey:key];
+                }
             }
         } else {
             NSLog(@"%s Wrong param: \"%@\"", __PRETTY_FUNCTION__, component);
