@@ -64,10 +64,38 @@ CGFloat const kTextLengthLabelFontSize = 16.f;
 - (void)doneButtonClicked:(UIBarButtonItem *)sender
 {
     [self dismissViewControllerAnimated:YES completion:^{
-        if ([self.delegate respondsToSelector:@selector(composeViewController:didFinishWithText:URL:image:)]) {
-            [self.delegate composeViewController:self didFinishWithText:self.textView.text URL:self.URL image:self.image];
+        if (self.usesWebImage) {
+            if ([self.delegate respondsToSelector:@selector(composeViewController:didFinishWithText:URL:imageURL:)]) {
+                [self.delegate composeViewController:self didFinishWithText:self.textView.text URL:self.URL imageURL:self.imageURL];
+            }
+        } else {
+            if ([self.delegate respondsToSelector:@selector(composeViewController:didFinishWithText:URL:image:)]) {
+                [self.delegate composeViewController:self didFinishWithText:self.textView.text URL:self.URL image:self.image];
+            }
         }
     }];
+}
+
+#pragma mark - Getters and setters
+
+- (void)setImage:(UIImage *)image
+{
+    if (_image != image) {
+        _image = image;
+        if (image) {
+            self.usesWebImage = NO;
+        }
+    }
+}
+
+- (void)setImageURL:(NSURL *)imageURL
+{
+    if (_imageURL != imageURL) {
+        _imageURL = imageURL;
+        if (imageURL.absoluteString.length) {
+            self.usesWebImage = YES;
+        }
+    }
 }
 
 #pragma mark - Life cycle
@@ -153,7 +181,20 @@ CGFloat const kTextLengthLabelFontSize = 16.f;
     [super viewWillAppear:animated];
     
     self.textView.text = self.initialText;
-    self.imageView.image = self.image;
+    if (self.usesWebImage) {
+        NSURL *imageURL = self.imageURL;
+        if (imageURL.absoluteString.length) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                UIImage *image = [UIImage imageWithData:imageData];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.imageView.image = image;
+                });
+            });
+        }
+    } else {
+        self.imageView.image = self.image;
+    }
     [self updateUI];
 }
 

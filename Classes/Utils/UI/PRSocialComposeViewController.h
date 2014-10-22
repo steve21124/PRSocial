@@ -15,6 +15,7 @@
 @optional
 
 - (void)composeViewController:(PRSocialComposeViewController *)composeViewController didFinishWithText:(NSString *)text URL:(NSURL *)URL image:(UIImage *)image;
+- (void)composeViewController:(PRSocialComposeViewController *)composeViewController didFinishWithText:(NSString *)text URL:(NSURL *)URL imageURL:(NSURL *)imageURL;
 - (void)composeViewControllerDidCancel:(PRSocialComposeViewController *)composeViewController;
 
 @end
@@ -28,5 +29,7 @@
 @property (nonatomic, copy) NSString *initialText;
 @property (nonatomic, strong) NSURL *URL;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, assign) BOOL usesWebImage;
 
 @end
