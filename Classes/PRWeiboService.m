@@ -19,6 +19,7 @@
 @interface PRWeiboService () <PRSocialComposeViewControllerDelegate>
 
 - (void)presentComposeViewControllerWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image;
+- (void)presentComposeViewControllerWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL;
 - (void)sendShareRequestWithText:(NSString *)text image:(UIImage *)image completion:(PRSocialCallback)completion;
 
 @end
@@ -89,13 +90,18 @@
 
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL completion:(PRSocialCallback)completion
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [PRSocialGlobalHUD show];
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        UIImage *image = [UIImage imageWithData:imageData];
-        [PRSocialGlobalHUD hide];
-        [self shareContentWithTitle:title description:description URL:URL image:image completion:completion];
-    });
+    [[PRWeiboAuth sharedAuth] authorizeWithCompletionHandler:^(BOOL success) {
+        if (success) {
+            self.completionHandler = completion;
+            [self presentComposeViewControllerWithTitle:title description:description URL:URL imageURL:imageURL];
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completion) {
+                    completion(NO, nil);
+                }
+            });
+        }
+    }];
 }
 
 - (void)shareContentWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL image:(UIImage *)image completion:(PRSocialCallback)completion
@@ -152,6 +158,28 @@
         
         if (image) {
             composeViewController.image = image;
+        }
+        
+        UINavigationController *composeNavigationController = [[UINavigationController alloc] initWithRootViewController:composeViewController];
+        [PRSocialGlobalHUD hide];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication].topWindow.topViewController presentViewController:composeNavigationController animated:YES completion:nil];
+        });
+    });
+}
+
+- (void)presentComposeViewControllerWithTitle:(NSString *)title description:(NSString *)description URL:(NSURL *)URL imageURL:(NSURL *)imageURL
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [PRSocialGlobalHUD show];
+        NSString *shortenedLink = [self shortLinkForLink:URL.absoluteString] ?: URL.absoluteString;
+        PRSocialComposeViewController *composeViewController = [[PRSocialComposeViewController alloc] init];
+        composeViewController.delegate = self;
+        composeViewController.title = title;
+        composeViewController.initialText = shortenedLink ? [@[description, shortenedLink] componentsJoinedByString:@" "] : description;
+        
+        if (imageURL) {
+            composeViewController.imageURL = imageURL;
         }
         
         UINavigationController *composeNavigationController = [[UINavigationController alloc] initWithRootViewController:composeViewController];
@@ -237,6 +265,58 @@
     });
 }
 
+- (void)sendShareRequestWithText:(NSString *)text imageURL:(NSURL *)imageURL completion:(PRSocialCallback)completion
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [PRSocialGlobalHUD show];
+        NSString *accessToken = [PRWeiboAuth sharedAuth].accessToken;
+        NSString *clientID = [[PRSocialConfig defaultConfig] valueForKey:kPRSocialConfigKeyAppID
+                                                          forServiceName:NSStringFromClass(self.class)];
+        NSURLRequest *request;
+        if (imageURL) {
+            NSURL *requestURL = [NSURL URLWithString:@"https://api.weibo.com/2/statuses/upload_url_text.json"];
+            request = [PRSocialHTTPRequest requestForURL:requestURL
+                                                  method:HTTPMethodPOST
+                                                 headers:nil
+                                             requestBody:@{@"access_token": accessToken,
+                                                           @"source": clientID,
+                                                           @"status": text,
+                                                           @"url": imageURL.absoluteString}];
+        } else {
+            NSURL *requestURL = [NSURL URLWithString:@"https://api.weibo.com/2/statuses/update.json"];
+            request = [PRSocialHTTPRequest requestForURL:requestURL
+                                                  method:HTTPMethodPOST
+                                                 headers:nil
+                                             requestBody:@{@"access_token": accessToken,
+                                                           @"source": clientID,
+                                                           @"status": text.prs_URLEncodedString}];
+        }
+        NSHTTPURLResponse *response;
+        NSError *error;
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                     returningResponse:&response
+                                                                 error:&error];
+        if (error) {
+            NSLog(@"%s URL connection error \n%@", __PRETTY_FUNCTION__, error.description);
+        }
+        NSDictionary *responseDictionary;
+        if (responseData) {
+            responseDictionary = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                 options:NSJSONReadingAllowFragments
+                                                                   error:&error];
+            if (error) {
+                NSLog(@"%s JSON parsing error \n%@", __PRETTY_FUNCTION__, error.description);
+            }
+        }
+        [PRSocialGlobalHUD hide];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(response.statusCode == 200, responseDictionary);
+            }
+        });
+    });
+}
+
 #pragma mark - Life cycle
 
 - (id)init
@@ -258,6 +338,16 @@
 - (void)composeViewController:(PRSocialComposeViewController *)composeViewController didFinishWithText:(NSString *)text URL:(NSURL *)URL image:(UIImage *)image
 {
     [self sendShareRequestWithText:text image:image completion:^(BOOL success, NSDictionary *result) {
+        if (self.completionHandler) {
+            self.completionHandler(success, result);
+            self.completionHandler = nil;
+        }
+    }];
+}
+
+- (void)composeViewController:(PRSocialComposeViewController *)composeViewController didFinishWithText:(NSString *)text URL:(NSURL *)URL imageURL:(NSURL *)imageURL
+{
+    [self sendShareRequestWithText:text imageURL:imageURL completion:^(BOOL success, NSDictionary *result) {
         if (self.completionHandler) {
             self.completionHandler(success, result);
             self.completionHandler = nil;
