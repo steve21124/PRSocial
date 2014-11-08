@@ -12,4 +12,7 @@ Pod::Spec.new do |s|
   s.libraries             = "z", "sqlite3", "stdc++"
   s.vendored_libraries    = "Frameworks", "Frameworks/**/*.a"
   s.requires_arc          = true
+  s.dependency            'MBProgressHUD', '~> 0.9'
+  s.dependency            'SSKeychain', '~> 1.2.2'
+  s.dependency            'Weibo', '~> 2.4.2'
 end
