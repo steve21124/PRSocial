@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.license               = { :type => "MIT", :file => "LICENSE" }
   s.author                = { "Elethom Hunter" => "elethomhunter@gmail.com" }
   s.social_media_url      = "https://twitter.com/ElethomHunter"
-  s.ios.deployment_target = "6.0"
   s.source                = { :git => "https://github.com/steve21124/PRSocial.git" }
   s.source_files          = "Classes", "Classes/**/*", "Frameworks/*.h", "Frameworks/**/*.h"
   s.frameworks            = "Foundation", "UIKit", "CoreGraphics", "Social", "CoreTelephony"
