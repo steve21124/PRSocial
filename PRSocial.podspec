@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.requires_arc          = true
   s.dependency            'MBProgressHUD', '~> 0.9'
   s.dependency            'SSKeychain', '~> 1.2.2'
-  s.dependency            'Weibo', :podspec => 'https://raw.githubusercontent.com/sinaweibosdk/weibo_ios_sdk/master/WeiboSDK.podspec'
+  s.dependency            'WeiboSDK'
 end
