@@ -18,5 +18,4 @@ Pod::Spec.new do |s|
   s.dependency            'SSKeychain', '~> 1.2.2'
   s.dependency            'TencentOpenApiSDK', '~> 2.3.0'
   s.dependency            'Weibo', '~> 2.4.2'
-  s.xcconfig              = { "FRAMEWORK_SEARCH_PATHS" => '"$(PODS_ROOT)/TencentOpenApiSDK"' }
 end
