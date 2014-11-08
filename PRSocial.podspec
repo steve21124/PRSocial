@@ -6,7 +6,6 @@ Pod::Spec.new do |s|
   s.license               = { :type => "MIT", :file => "LICENSE" }
   s.author                = { "Elethom Hunter" => "elethomhunter@gmail.com" }
   s.social_media_url      = "https://twitter.com/ElethomHunter"
-  s.platform              = :ios
   s.ios.deployment_target = "6.0"
   s.source                = { :git => "https://github.com/steve21124/PRSocial.git" }
   s.source_files          = "Classes", "Classes/**/*", "Frameworks/*.h", "Frameworks/**/*.h"
@@ -16,6 +15,5 @@ Pod::Spec.new do |s|
   s.requires_arc          = true
   s.dependency            'MBProgressHUD', '~> 0.9'
   s.dependency            'SSKeychain', '~> 1.2.2'
-  s.dependency            'TencentOpenApiSDK', '~> 2.3.0'
   s.dependency            'Weibo', '~> 2.4.2'
 end
