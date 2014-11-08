@@ -20,7 +20,7 @@ NSString * const kPRSocialConfigKeyOAuthScope = @"Scope";
 
 @property (nonatomic, strong) NSMutableDictionary *configs;
 @property (nonatomic, strong) NSMutableDictionary *URLSchemes;
-@property (nonatomic, strong) dispatch_queue_t configQueue;
+@property (nonatomic, assign) dispatch_queue_t configQueue;
 
 @end
 
