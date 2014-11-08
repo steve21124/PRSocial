@@ -8,13 +8,13 @@ Pod::Spec.new do |s|
   s.social_media_url      = "https://twitter.com/ElethomHunter"
   s.platform              = :ios
   s.ios.deployment_target = "6.0"
-  s.source                = { :git => "https://github.com/Elethom/PRSocial.git", :tag => "0.1.14" }
+  s.source                = { :git => "https://github.com/steve21124/PRSocial.git" }
   s.source_files          = "Classes", "Classes/**/*", "Frameworks/*.h", "Frameworks/**/*.h"
   s.frameworks            = "Foundation", "UIKit", "CoreGraphics", "Social", "CoreTelephony"
   s.libraries             = "z", "sqlite3", "stdc++"
   s.vendored_libraries    = "Frameworks", "Frameworks/**/*.a"
   s.requires_arc          = true
-  s.dependency            'MBProgressHUD', '~> 0.8'
+  s.dependency            'MBProgressHUD', '~> 0.9'
   s.dependency            'SSKeychain', '~> 1.2.2'
   s.dependency            'TencentOpenApiSDK', '~> 2.3.0'
   s.dependency            'Weibo', '~> 2.4.2'
