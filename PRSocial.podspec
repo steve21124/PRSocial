@@ -14,4 +14,5 @@ Pod::Spec.new do |s|
   s.requires_arc          = true
   s.dependency            'MBProgressHUD', '~> 0.9'
   s.dependency            'SSKeychain', '~> 1.2.2'
+  s.dependency            'Weibo'
 end
